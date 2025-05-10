@@ -45,7 +45,7 @@
         content="2025-05-09">
       <meta 
         property="og:article:modified_time" 
-        content="2025-05-09">
+        content="2025-05-10">
       <meta 
         property="og:article:author" 
         content="群山鸽">
@@ -385,7 +385,7 @@
     
     
       <span class="dot"></span>
-      <span>111 字</span>
+      <span>275 字</span>
     
   </div>
   
@@ -407,7 +407,18 @@
 <p>
  抽取网络请求到pinia
 </p>
-
+4.组件之间监听点击(返回上一级) <br>
+<p>
+ 思路:子组件在标签上监听,获取标签传递的信息,然后emit传递给父组件,父组件放置到相应位置
+ 实操:<br>
+ (1)用router.back()和事件总线eventBus.emit("事件名",传递值)<br>
+ (2)要传递的对象使用范围大,绑定到store里面<br>
+ 提示:最好传递对象而非对象的内的数据
+</p>
+5.死数据变活<br>
+<p>
+ 搭建框架的时候直接写文本,然后在script里面写data数据(此时还是死数据)用插值或者其他方式绑定到框架中,再对数据进行处理
+</p>
  
 
   </div>
@@ -419,7 +430,7 @@
   
     <div class="nav-item-prev">
       <a 
-        href="/2025/05/09/hello-world/" 
+        href="/2025/05/10/hello-world/" 
         class="nav-link">
         <i class="iconfont icon-left nav-prev-icon"></i>
         <div>
@@ -486,8 +497,8 @@
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2025-05-09</div>
-        <a href="/2025/05/09/hello-world/"><div class="recent-posts-item-content">Hello World</div></a>
+        <div class="recent-posts-item-title">2025-05-10</div>
+        <a href="/2025/05/10/hello-world/"><div class="recent-posts-item-content">Hello World</div></a>
       </div>
     
       <div class="recent-posts-item">
