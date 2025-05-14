@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="https://q2.qlogo.cn/headimg_dl?dst_uin=2502353568&amp;spec=5">
-  <title>Hello World</title>
+  <title>群山鸽的个人网站</title>
   
     
       <meta 
         property="og:title" 
-        content="Hello World">
+        content="群山鸽的个人网站">
     
     
       <meta 
         property="og:url" 
-        content="http://example.com/2025/05/11/hello-world/index.html">
+        content="http://example.com/2025/05/14/project/index.html">
     
     
       <meta 
@@ -42,10 +42,10 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2025-05-11">
+        content="2025-05-14">
       <meta 
         property="og:article:modified_time" 
-        content="2025-05-11">
+        content="2025-05-14">
       <meta 
         property="og:article:author" 
         content="群山鸽">
@@ -289,7 +289,7 @@
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>6</span>
+    <span>7</span>
     <span>文章</span>
   </a>
   <a 
@@ -318,7 +318,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-%E9%A1%B9%E7%9B%AE-2-date-2025-05-14"><span class="toc-text">title:项目(2)date:2025-05-14</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyLogin%E9%A1%B5%E9%9D%A2"><span class="toc-text">MyLogin页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">实现功能:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题:</span></a></li></ol></li></ol></li></ol></li></ol>
       </div>
     </article>
   
@@ -383,21 +383,21 @@
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      Hello World
+      
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-05-11T12:15:15.697Z">
+    <time datetime="2025-05-14T11:49:40.736Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2025-05-11</span>
+      <span>2025-05-14</span>
     </time>
     
     
       <span class="dot"></span>
-      <span>75 字</span>
+      <span>165 字</span>
     
   </div>
   
@@ -405,19 +405,33 @@
   <div 
     id="section" 
     class="post-content">
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="highlight"><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre>
+    <hr>
+<h2 id="title-项目-2-date-2025-05-14"><a href="#title-项目-2-date-2025-05-14" class="headerlink" title="title:项目(2)date:2025-05-14"></a>title:项目(2)<br>date:2025-05-14</h2><h4 id="MyLogin页面"><a href="#MyLogin页面" class="headerlink" title="MyLogin页面"></a>MyLogin页面</h4><h5 id="实现功能"><a href="#实现功能" class="headerlink" title="实现功能:"></a>实现功能:<br></h5>  <p>
+  (1)登录表单区域中通过双向绑定,默认账号密码,并且将账号密码信息传给!!组件<br>
+  (2)重置表单中存在的账号密码信息<br>
+  (3)用sessionStorage将数据存储在服务器内,仅在前端使用,不参与服务器通信<br>
+</p>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="highlight"><span class="line">$ hexo server</span><br></pre>
+<h5 id="问题"><a href="#问题" class="headerlink" title="问题:"></a>问题:<br></h5><p>
+  (1)从哪里验证的账号密码信息<br>
+  (2)后端的token<br>
+</p>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="highlight"><span class="line">$ hexo generate</span><br></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="highlight"><span class="line">$ hexo deploy</span><br></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>
+  <code>
+async function login () &#123;
+  const &#123; data &#125; = await axios.post('http://localhost:3000/user/login', loginForm.value)
+  if (data.code === 2) &#123;
+    window.sessionStorage.setItem('userid', data.body.userid)
+    window.sessionStorage.setItem('username', data.body.username)
+    window.sessionStorage.setItem('roleType', data.body.roleType)
+    router.push('/home')
+  &#125; else &#123;
+    ElMessage.error(data.msg)
+  &#125;
+&#125;
+</code>
+</p>
 
   </div>
   <div>
@@ -425,6 +439,20 @@
   </div>
 </article>
 <div class="nav">
+  
+    <div class="nav-item-prev">
+      <a 
+        href="/2025/05/14/hello-world/" 
+        class="nav-link">
+        <i class="iconfont icon-left nav-prev-icon"></i>
+        <div>
+          <div class="nav-label">上一篇</div>
+          
+            <div class="nav-title">Hello World </div>
+          
+        </div>
+      </a>
+    </div>
   
   
     <div class="nav-item-next">
@@ -452,7 +480,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-%E9%A1%B9%E7%9B%AE-2-date-2025-05-14"><span class="toc-text">title:项目(2)date:2025-05-14</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyLogin%E9%A1%B5%E9%9D%A2"><span class="toc-text">MyLogin页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">实现功能:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题:</span></a></li></ol></li></ol></li></ol></li></ol>
 </div>
             </main>
             <aside class="right-column">
@@ -466,7 +494,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-%E9%A1%B9%E7%9B%AE-2-date-2025-05-14"><span class="toc-text">title:项目(2)date:2025-05-14</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyLogin%E9%A1%B5%E9%9D%A2"><span class="toc-text">MyLogin页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">实现功能:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题:</span></a></li></ol></li></ol></li></ol></li></ol>
     </article>
   
   
@@ -481,8 +509,13 @@
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2025-05-11</div>
-        <a href="/2025/05/11/hello-world/"><div class="recent-posts-item-content">Hello World</div></a>
+        <div class="recent-posts-item-title">2025-05-14</div>
+        <a href="/2025/05/14/hello-world/"><div class="recent-posts-item-content">Hello World</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2025-05-14</div>
+        <a href="/2025/05/14/project/"><div class="recent-posts-item-content"></div></a>
       </div>
     
       <div class="recent-posts-item">
@@ -493,11 +526,6 @@
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2025-05-09</div>
         <a href="/2025/05/09/priojectStu/"><div class="recent-posts-item-content">项目(1)</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2025-05-08</div>
-        <a href="/2025/05/08/vant-ui/"><div class="recent-posts-item-content">vant-ui</div></a>
       </div>
     
   </div>
