@@ -18,12 +18,12 @@
   <link 
     rel="icon" 
     href="https://q2.qlogo.cn/headimg_dl?dst_uin=2502353568&amp;spec=5">
-  <title>群山鸽的个人网站</title>
+  <title>项目(2)-用户登录</title>
   
     
       <meta 
         property="og:title" 
-        content="群山鸽的个人网站">
+        content="项目(2)-用户登录">
     
     
       <meta 
@@ -318,7 +318,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-%E9%A1%B9%E7%9B%AE-2-date-2025-05-14"><span class="toc-text">title:项目(2)date:2025-05-14</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyLogin%E9%A1%B5%E9%9D%A2"><span class="toc-text">MyLogin页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">实现功能:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题:</span></a></li></ol></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyLogin%E9%A1%B5%E9%9D%A2"><span class="toc-text">MyLogin页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">1.实现功能:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E9%97%AE%E9%A2%98"><span class="toc-text">2.问题:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-text">3.代码片段</span></a></li></ol></li></ol>
       </div>
     </article>
   
@@ -383,11 +383,11 @@
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      
+      项目(2)-用户登录
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-05-14T11:49:40.736Z">
+    <time datetime="2025-05-14T00:00:00.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
@@ -397,7 +397,7 @@
     
     
       <span class="dot"></span>
-      <span>165 字</span>
+      <span>432 字</span>
     
   </div>
   
@@ -405,19 +405,21 @@
   <div 
     id="section" 
     class="post-content">
-    <hr>
-<h2 id="title-项目-2-date-2025-05-14"><a href="#title-项目-2-date-2025-05-14" class="headerlink" title="title:项目(2)date:2025-05-14"></a>title:项目(2)<br>date:2025-05-14</h2><h4 id="MyLogin页面"><a href="#MyLogin页面" class="headerlink" title="MyLogin页面"></a>MyLogin页面</h4><h5 id="实现功能"><a href="#实现功能" class="headerlink" title="实现功能:"></a>实现功能:<br></h5>  <p>
-  (1)登录表单区域中通过双向绑定,默认账号密码,并且将账号密码信息传给!!组件<br>
+    <h4 id="MyLogin页面"><a href="#MyLogin页面" class="headerlink" title="MyLogin页面"></a>MyLogin页面</h4><h5 id="1-实现功能"><a href="#1-实现功能" class="headerlink" title="1.实现功能:"></a>1.实现功能:<br></h5>  <p>
+  (1)登录表单区域中通过双向绑定,默认账号密码,点击登录时将账号密码信息传给后端,后端验证账号密码(代码在下面)<br>
   (2)重置表单中存在的账号密码信息<br>
   (3)用sessionStorage将数据存储在服务器内,仅在前端使用,不参与服务器通信<br>
+  (4)登录后路由跳转到用户主页
 </p>
 
-<h5 id="问题"><a href="#问题" class="headerlink" title="问题:"></a>问题:<br></h5><p>
+<h5 id="2-问题"><a href="#2-问题" class="headerlink" title="2.问题:"></a>2.问题:<br></h5><p>
   (1)从哪里验证的账号密码信息<br>
   (2)后端的token<br>
+  是服务器生成的一段字符串，代表用户的身份或权限，用于替代传统的用户名和密码进行后续请求的验证。
 </p>
 
-<p>
+
+<h5 id="3-代码片段"><a href="#3-代码片段" class="headerlink" title="3.代码片段"></a>3.代码片段</h5><p>
   <code>
 async function login () &#123;
   const &#123; data &#125; = await axios.post('http://localhost:3000/user/login', loginForm.value)
@@ -431,6 +433,16 @@ async function login () &#123;
   &#125;
 &#125;
 </code>
+</p>
+
+<p>
+  (1)const {data} 解构赋值<br>
+  通过 const { data } = ... 语法，可以直接从响应对象中提取 data 属性并赋值给同名变量,用于从 Promise 解析后的响应对象中提取特定属性。<br>
+  (2)data.code===2<br>
+  data.code===2是自己写的,写在后端的user页面中:
+  <code>
+    
+<p>user.post(‘&#x2F;login’, async (req, res) &#x3D;&gt; &#123;<br>&#x2F;&#x2F;从请求体中获取用户提交的数据<br>  const &#123; body &#125; &#x3D; req<br>  let sql &#x3D; <code>select * from user_info where userid=&#39;$&#123;body.userid&#125;&#39; and password=&#39;$&#123;body.password&#125;&#39;</code><br>  &#x2F;&#x2F;创建数据库操作实例<br>  const addDatabase &#x3D; new DataBase()<br>  &#x2F;&#x2F;执行查询<br>  const info &#x3D; await addDatabase.getSqlData(sql)<br>  if (info.length) {<br>    res.send({<br>      code: 2,<br>      body: info[0]<br>      &#x2F;&#x2F;返回查询到的第一条数据<br>    })<br>  } else {<br>    res.send({<br>      code: 4,<br>      msg: ‘账号或密码有误！’<br>    })<br>  }<br>})<br>  </code></p>
 </p>
 
   </div>
@@ -480,7 +492,7 @@ async function login () &#123;
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-%E9%A1%B9%E7%9B%AE-2-date-2025-05-14"><span class="toc-text">title:项目(2)date:2025-05-14</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyLogin%E9%A1%B5%E9%9D%A2"><span class="toc-text">MyLogin页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">实现功能:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题:</span></a></li></ol></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyLogin%E9%A1%B5%E9%9D%A2"><span class="toc-text">MyLogin页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">1.实现功能:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E9%97%AE%E9%A2%98"><span class="toc-text">2.问题:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-text">3.代码片段</span></a></li></ol></li></ol>
 </div>
             </main>
             <aside class="right-column">
@@ -494,7 +506,7 @@ async function login () &#123;
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-%E9%A1%B9%E7%9B%AE-2-date-2025-05-14"><span class="toc-text">title:项目(2)date:2025-05-14</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyLogin%E9%A1%B5%E9%9D%A2"><span class="toc-text">MyLogin页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">实现功能:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题:</span></a></li></ol></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyLogin%E9%A1%B5%E9%9D%A2"><span class="toc-text">MyLogin页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">1.实现功能:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E9%97%AE%E9%A2%98"><span class="toc-text">2.问题:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-text">3.代码片段</span></a></li></ol></li></ol>
     </article>
   
   
@@ -515,7 +527,7 @@ async function login () &#123;
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2025-05-14</div>
-        <a href="/2025/05/14/project/"><div class="recent-posts-item-content"></div></a>
+        <a href="/2025/05/14/project/"><div class="recent-posts-item-content">项目(2)-用户登录</div></a>
       </div>
     
       <div class="recent-posts-item">
