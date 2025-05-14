@@ -1,26 +1,30 @@
 ---
-title:项目(2)
-date:2025-05-14
+title: 项目(2)-用户登录
+date: 2025-05-14
 ---
 
 
 #### MyLogin页面
 
 
-  ##### 实现功能:<br>
+  ##### 1.实现功能:<br>
   <p>
-  (1)登录表单区域中通过双向绑定,默认账号密码,并且将账号密码信息传给!!组件<br>
+  (1)登录表单区域中通过双向绑定,默认账号密码,点击登录时将账号密码信息传给后端,后端验证账号密码(代码在下面)<br>
   (2)重置表单中存在的账号密码信息<br>
   (3)用sessionStorage将数据存储在服务器内,仅在前端使用,不参与服务器通信<br>
+  (4)登录后路由跳转到用户主页
 </p>
 
-  ##### 问题:<br>
+  ##### 2.问题:<br>
 
 <p>
   (1)从哪里验证的账号密码信息<br>
   (2)后端的token<br>
+  是服务器生成的一段字符串，代表用户的身份或权限，用于替代传统的用户名和密码进行后续请求的验证。
 </p>
 
+
+##### 3.代码片段
 <p>
   <code>
 async function login () {
@@ -35,4 +39,36 @@ async function login () {
   }
 }
 </code>
+</p>
+
+<p>
+  (1)const {data} 解构赋值<br>
+  通过 const { data } = ... 语法，可以直接从响应对象中提取 data 属性并赋值给同名变量,用于从 Promise 解析后的响应对象中提取特定属性。<br>
+  (2)data.code===2<br>
+  data.code===2是自己写的,写在后端的user页面中:
+  <code>
+    
+user.post('/login', async (req, res) => {
+//从请求体中获取用户提交的数据
+  const { body } = req
+  let sql = `select * from user_info where userid='${body.userid}' and password='${body.password}'`
+  //创建数据库操作实例
+  const addDatabase = new DataBase()
+  //执行查询
+  const info = await addDatabase.getSqlData(sql)
+  if (info.length) {
+    res.send({
+      code: 2,
+      body: info[0]
+      //返回查询到的第一条数据
+    })
+  } else {
+    res.send({
+      code: 4,
+      msg: '账号或密码有误！'
+    })
+  }
+})
+  </code>
+  
 </p>
