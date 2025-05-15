@@ -45,7 +45,7 @@
         content="2025-05-14">
       <meta 
         property="og:article:modified_time" 
-        content="2025-05-14">
+        content="2025-05-15">
       <meta 
         property="og:article:author" 
         content="群山鸽">
@@ -318,7 +318,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyLogin%E9%A1%B5%E9%9D%A2"><span class="toc-text">MyLogin页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">1.实现功能:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E9%97%AE%E9%A2%98"><span class="toc-text">2.问题:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-text">3.代码片段</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyLogin%E9%A1%B5%E9%9D%A2"><span class="toc-text">MyLogin页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">1.实现功能:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E9%97%AE%E9%A2%98"><span class="toc-text">2.问题:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-text">3.代码片段</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#localStorage"><span class="toc-text">localStorage</span></a></li></ol></li></ol></li></ol>
       </div>
     </article>
   
@@ -397,7 +397,7 @@
     
     
       <span class="dot"></span>
-      <span>432 字</span>
+      <span>521 字</span>
     
   </div>
   
@@ -445,6 +445,26 @@ async function login () &#123;
 <p>user.post(‘&#x2F;login’, async (req, res) &#x3D;&gt; &#123;<br>&#x2F;&#x2F;从请求体中获取用户提交的数据<br>  const &#123; body &#125; &#x3D; req<br>  let sql &#x3D; <code>select * from user_info where userid=&#39;$&#123;body.userid&#125;&#39; and password=&#39;$&#123;body.password&#125;&#39;</code><br>  &#x2F;&#x2F;创建数据库操作实例<br>  const addDatabase &#x3D; new DataBase()<br>  &#x2F;&#x2F;执行查询<br>  const info &#x3D; await addDatabase.getSqlData(sql)<br>  if (info.length) {<br>    res.send({<br>      code: 2,<br>      body: info[0]<br>      &#x2F;&#x2F;返回查询到的第一条数据<br>    })<br>  } else {<br>    res.send({<br>      code: 4,<br>      msg: ‘账号或密码有误！’<br>    })<br>  }<br>})<br>  </code></p>
 </p>
 
+
+<p><b>类似片段</b></p>
+<code>
+  const login =()=>&#123;
+    if(username.value==='admin'&&password.value==='admin')&#123;
+        localStorage.setItem('token','Bear...')
+        router.push('/home')
+    &#125;else&#123;
+        localStorage.removeItem('token')
+    &#125;
+&#125;
+</code>
+<br>
+
+<h6 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h6><p>
+  浏览器提供的客户端储存机制,在浏览器存储键值对数据,长期保留并且不会发送到服务器,一般用于存储无需保密的客户端数据<br>
+  localStorage.setItem(key, value);
+</p>
+
+
   </div>
   <div>
     
@@ -454,7 +474,7 @@ async function login () &#123;
   
     <div class="nav-item-prev">
       <a 
-        href="/2025/05/14/hello-world/" 
+        href="/2025/05/15/hello-world/" 
         class="nav-link">
         <i class="iconfont icon-left nav-prev-icon"></i>
         <div>
@@ -492,7 +512,7 @@ async function login () &#123;
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyLogin%E9%A1%B5%E9%9D%A2"><span class="toc-text">MyLogin页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">1.实现功能:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E9%97%AE%E9%A2%98"><span class="toc-text">2.问题:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-text">3.代码片段</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyLogin%E9%A1%B5%E9%9D%A2"><span class="toc-text">MyLogin页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">1.实现功能:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E9%97%AE%E9%A2%98"><span class="toc-text">2.问题:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-text">3.代码片段</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#localStorage"><span class="toc-text">localStorage</span></a></li></ol></li></ol></li></ol>
 </div>
             </main>
             <aside class="right-column">
@@ -506,7 +526,7 @@ async function login () &#123;
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyLogin%E9%A1%B5%E9%9D%A2"><span class="toc-text">MyLogin页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">1.实现功能:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E9%97%AE%E9%A2%98"><span class="toc-text">2.问题:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-text">3.代码片段</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyLogin%E9%A1%B5%E9%9D%A2"><span class="toc-text">MyLogin页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">1.实现功能:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E9%97%AE%E9%A2%98"><span class="toc-text">2.问题:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-text">3.代码片段</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#localStorage"><span class="toc-text">localStorage</span></a></li></ol></li></ol></li></ol>
     </article>
   
   
@@ -521,8 +541,8 @@ async function login () &#123;
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2025-05-14</div>
-        <a href="/2025/05/14/hello-world/"><div class="recent-posts-item-content">Hello World</div></a>
+        <div class="recent-posts-item-title">2025-05-15</div>
+        <a href="/2025/05/15/hello-world/"><div class="recent-posts-item-content">Hello World</div></a>
       </div>
     
       <div class="recent-posts-item">
