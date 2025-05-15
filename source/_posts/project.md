@@ -72,3 +72,25 @@ user.post('/login', async (req, res) => {
   </code>
   
 </p>
+
+
+<b>类似片段</b>
+
+<code>
+  const login =()=>{
+    if(username.value==='admin'&&password.value==='admin'){
+        localStorage.setItem('token','Bear...')
+        router.push('/home')
+    }else{
+        localStorage.removeItem('token')
+    }
+}
+</code>
+<br>
+
+######  localStorage
+<p>
+  浏览器提供的客户端储存机制,在浏览器存储键值对数据,长期保留并且不会发送到服务器,一般用于存储无需保密的客户端数据<br>
+  localStorage.setItem(key, value);
+</p>
+
