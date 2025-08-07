@@ -1,6 +1,10 @@
 ---
 title: vant-ui 
 date: 2025-05-08
+tag: 
+- 组件库
+
+category: 前端
 ---
 
 1.在vant官网打开快速使用,找到插件相关内容,安装插件,然后在vite.config.js中配置
