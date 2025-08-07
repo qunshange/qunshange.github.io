@@ -1,7 +1,9 @@
 ---
 title: Vue学习 -组件间传值整理
 date: 2025-5-15
-tag: 基础整理
+tag: 
+-基础整理
+-slot
 category: 前端
 ---
 #### slot插槽
