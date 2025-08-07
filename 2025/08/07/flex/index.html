@@ -326,7 +326,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A7%84%E5%AE%9Aflexbox"><span class="toc-text">规定flexbox</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9A%E4%B8%BB%E8%BD%B4%E6%96%B9%E5%90%91-%E8%A7%84%E5%AE%9A%E5%AD%90%E5%85%83%E7%B4%A0%E6%8E%92%E5%88%97%E6%96%B9%E5%90%91"><span class="toc-text">定主轴方向-规定子元素排列方向</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E8%BD%B4%E5%AF%B9%E9%BD%90-%E6%A8%AA%E8%BD%B4%E4%B8%8A%E5%AD%90%E5%85%83%E7%B4%A0%E5%AF%B9%E9%BD%90%E9%AB%98%E5%BA%A6"><span class="toc-text">交叉轴对齐-横轴上子元素对齐高度</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#align-items"><span class="toc-text">align-items:</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A7%84%E5%AE%9Aflexbox"><span class="toc-text">规定flexbox</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9A%E4%B8%BB%E8%BD%B4%E6%96%B9%E5%90%91%E2%80%93%E8%A7%84%E5%AE%9A%E5%AD%90%E5%85%83%E7%B4%A0%E6%8E%92%E5%88%97%E6%96%B9%E5%90%91"><span class="toc-text">定主轴方向–规定子元素排列方向</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#flex-direction"><span class="toc-text">flex-direction:</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E8%BD%B4%E5%AF%B9%E9%BD%90%E2%80%93%E6%A8%AA%E8%BD%B4%E4%B8%8A%E5%AD%90%E5%85%83%E7%B4%A0%E5%AF%B9%E9%BD%90%E9%AB%98%E5%BA%A6"><span class="toc-text">交叉轴对齐–横轴上子元素对齐高度</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#align-items"><span class="toc-text">align-items:</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B0%B4%E5%B9%B3%E8%BD%B4%E5%AF%B9%E9%BD%90%E2%80%93%E6%A8%AA%E8%BD%B4%E4%B8%8A%E5%AD%90%E5%85%83%E7%B4%A0%E5%88%86%E5%B8%83"><span class="toc-text">水平轴对齐–横轴上子元素分布</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#justify-content"><span class="toc-text">justify-content:</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%9A%E8%BD%B4%E5%AF%B9%E9%BD%90%E2%80%93%E7%BA%B5%E8%BD%B4%E4%B8%8A%E5%AD%90%E5%85%83%E7%B4%A0%E5%88%86%E5%B8%83"><span class="toc-text">多轴对齐–纵轴上子元素分布</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#align-content"><span class="toc-text">align-content:</span></a></li></ol></li></ol>
       </div>
     </article>
   
@@ -363,15 +363,15 @@
   <div class="tags-list">
     
       <a 
-        href="/tags/%E5%9F%BA%E7%A1%80%E6%95%B4%E7%90%86/" 
-        title="基础整理">
-        <div class="tags-list-item">基础整理</div>
-      </a>
-    
-      <a 
         href="/tags/%E9%A1%B9%E7%9B%AE%E7%BB%83%E4%B9%A0/" 
         title="项目练习">
         <div class="tags-list-item">项目练习</div>
+      </a>
+    
+      <a 
+        href="/tags/%E5%9F%BA%E7%A1%80%E6%95%B4%E7%90%86/" 
+        title="基础整理">
+        <div class="tags-list-item">基础整理</div>
       </a>
     
       <a 
@@ -427,7 +427,7 @@
     
     
       <span class="dot"></span>
-      <span>105 字</span>
+      <span>240 字</span>
     
   </div>
   
@@ -465,15 +465,27 @@
     class="post-content">
     <h5 id="规定flexbox"><a href="#规定flexbox" class="headerlink" title="规定flexbox"></a>规定flexbox</h5><p>写display : flex</p>
 
-<h5 id="定主轴方向-规定子元素排列方向"><a href="#定主轴方向-规定子元素排列方向" class="headerlink" title="定主轴方向-规定子元素排列方向"></a>定主轴方向-规定子元素排列方向</h5><p>######flex-direction:</p>
-<p>row(默认值):横向排列</p>
+<h5 id="定主轴方向–规定子元素排列方向"><a href="#定主轴方向–规定子元素排列方向" class="headerlink" title="定主轴方向–规定子元素排列方向"></a>定主轴方向–规定子元素排列方向</h5><h6 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction:"></a>flex-direction:</h6><p>row(默认值):横向排列</p>
 <p>row-reverse:横向反向排列</p>
 <p>column:竖向排列</p>
 
-<h5 id="交叉轴对齐-横轴上子元素对齐高度"><a href="#交叉轴对齐-横轴上子元素对齐高度" class="headerlink" title="交叉轴对齐-横轴上子元素对齐高度"></a>交叉轴对齐-横轴上子元素对齐高度</h5><h6 id="align-items"><a href="#align-items" class="headerlink" title="align-items:"></a>align-items:</h6><p>stretch(默认值):所有子元素行高 和行高最高的一样高,并对齐</p>
+<h5 id="交叉轴对齐–横轴上子元素对齐高度"><a href="#交叉轴对齐–横轴上子元素对齐高度" class="headerlink" title="交叉轴对齐–横轴上子元素对齐高度"></a>交叉轴对齐–横轴上子元素对齐高度</h5><h6 id="align-items"><a href="#align-items" class="headerlink" title="align-items:"></a>align-items:</h6><p>stretch(默认值):所有子元素行高 和行高最高的一样高,并对齐</p>
 <p>flex-start:在第一行对齐</p>
 <p>flex-end:在最后一行对齐</p>
 <p>center:在中线对齐</p>
+
+<h5 id="水平轴对齐–横轴上子元素分布"><a href="#水平轴对齐–横轴上子元素分布" class="headerlink" title="水平轴对齐–横轴上子元素分布"></a>水平轴对齐–横轴上子元素分布</h5><h6 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content:"></a>justify-content:</h6><p>center(默认值):内容居中展示</p>
+<p>space-between:首尾靠边,中间均匀分布</p>
+<p>space-around:首尾靠边空1/2,中间均匀分布</p>
+<p>space-evenly:所有空隙一样分布</p>
+
+<h5 id="多轴对齐–纵轴上子元素分布"><a href="#多轴对齐–纵轴上子元素分布" class="headerlink" title="多轴对齐–纵轴上子元素分布"></a>多轴对齐–纵轴上子元素分布</h5><h6 id="align-content"><a href="#align-content" class="headerlink" title="align-content:"></a>align-content:</h6><p>normal:无效果</p>
+<p>flex-start/flex-end:从首行开始或最后一行开始对齐</p>
+<p>space-between:首尾靠边,中间均匀分布</p>
+<p>space-around:首尾靠边空1/2,中间均匀分布</p>
+<p>space-evenly:所有空隙一样分布</p>
+
+
 
 
 
@@ -512,7 +524,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A7%84%E5%AE%9Aflexbox"><span class="toc-text">规定flexbox</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9A%E4%B8%BB%E8%BD%B4%E6%96%B9%E5%90%91-%E8%A7%84%E5%AE%9A%E5%AD%90%E5%85%83%E7%B4%A0%E6%8E%92%E5%88%97%E6%96%B9%E5%90%91"><span class="toc-text">定主轴方向-规定子元素排列方向</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E8%BD%B4%E5%AF%B9%E9%BD%90-%E6%A8%AA%E8%BD%B4%E4%B8%8A%E5%AD%90%E5%85%83%E7%B4%A0%E5%AF%B9%E9%BD%90%E9%AB%98%E5%BA%A6"><span class="toc-text">交叉轴对齐-横轴上子元素对齐高度</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#align-items"><span class="toc-text">align-items:</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A7%84%E5%AE%9Aflexbox"><span class="toc-text">规定flexbox</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9A%E4%B8%BB%E8%BD%B4%E6%96%B9%E5%90%91%E2%80%93%E8%A7%84%E5%AE%9A%E5%AD%90%E5%85%83%E7%B4%A0%E6%8E%92%E5%88%97%E6%96%B9%E5%90%91"><span class="toc-text">定主轴方向–规定子元素排列方向</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#flex-direction"><span class="toc-text">flex-direction:</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E8%BD%B4%E5%AF%B9%E9%BD%90%E2%80%93%E6%A8%AA%E8%BD%B4%E4%B8%8A%E5%AD%90%E5%85%83%E7%B4%A0%E5%AF%B9%E9%BD%90%E9%AB%98%E5%BA%A6"><span class="toc-text">交叉轴对齐–横轴上子元素对齐高度</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#align-items"><span class="toc-text">align-items:</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B0%B4%E5%B9%B3%E8%BD%B4%E5%AF%B9%E9%BD%90%E2%80%93%E6%A8%AA%E8%BD%B4%E4%B8%8A%E5%AD%90%E5%85%83%E7%B4%A0%E5%88%86%E5%B8%83"><span class="toc-text">水平轴对齐–横轴上子元素分布</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#justify-content"><span class="toc-text">justify-content:</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%9A%E8%BD%B4%E5%AF%B9%E9%BD%90%E2%80%93%E7%BA%B5%E8%BD%B4%E4%B8%8A%E5%AD%90%E5%85%83%E7%B4%A0%E5%88%86%E5%B8%83"><span class="toc-text">多轴对齐–纵轴上子元素分布</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#align-content"><span class="toc-text">align-content:</span></a></li></ol></li></ol>
 </div>
             </main>
             <aside class="right-column">
@@ -526,7 +538,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A7%84%E5%AE%9Aflexbox"><span class="toc-text">规定flexbox</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9A%E4%B8%BB%E8%BD%B4%E6%96%B9%E5%90%91-%E8%A7%84%E5%AE%9A%E5%AD%90%E5%85%83%E7%B4%A0%E6%8E%92%E5%88%97%E6%96%B9%E5%90%91"><span class="toc-text">定主轴方向-规定子元素排列方向</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E8%BD%B4%E5%AF%B9%E9%BD%90-%E6%A8%AA%E8%BD%B4%E4%B8%8A%E5%AD%90%E5%85%83%E7%B4%A0%E5%AF%B9%E9%BD%90%E9%AB%98%E5%BA%A6"><span class="toc-text">交叉轴对齐-横轴上子元素对齐高度</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#align-items"><span class="toc-text">align-items:</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A7%84%E5%AE%9Aflexbox"><span class="toc-text">规定flexbox</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9A%E4%B8%BB%E8%BD%B4%E6%96%B9%E5%90%91%E2%80%93%E8%A7%84%E5%AE%9A%E5%AD%90%E5%85%83%E7%B4%A0%E6%8E%92%E5%88%97%E6%96%B9%E5%90%91"><span class="toc-text">定主轴方向–规定子元素排列方向</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#flex-direction"><span class="toc-text">flex-direction:</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E8%BD%B4%E5%AF%B9%E9%BD%90%E2%80%93%E6%A8%AA%E8%BD%B4%E4%B8%8A%E5%AD%90%E5%85%83%E7%B4%A0%E5%AF%B9%E9%BD%90%E9%AB%98%E5%BA%A6"><span class="toc-text">交叉轴对齐–横轴上子元素对齐高度</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#align-items"><span class="toc-text">align-items:</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B0%B4%E5%B9%B3%E8%BD%B4%E5%AF%B9%E9%BD%90%E2%80%93%E6%A8%AA%E8%BD%B4%E4%B8%8A%E5%AD%90%E5%85%83%E7%B4%A0%E5%88%86%E5%B8%83"><span class="toc-text">水平轴对齐–横轴上子元素分布</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#justify-content"><span class="toc-text">justify-content:</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%9A%E8%BD%B4%E5%AF%B9%E9%BD%90%E2%80%93%E7%BA%B5%E8%BD%B4%E4%B8%8A%E5%AD%90%E5%85%83%E7%B4%A0%E5%88%86%E5%B8%83"><span class="toc-text">多轴对齐–纵轴上子元素分布</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#align-content"><span class="toc-text">align-content:</span></a></li></ol></li></ol>
     </article>
   
   
