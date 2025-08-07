@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="https://q2.qlogo.cn/headimg_dl?dst_uin=2502353568&amp;spec=5">
-  <title>Vue学习 -组件间传值整理</title>
+  <title>基于 uni-app 和腾讯地图 SDK 实现水印相机</title>
   
     
       <meta 
         property="og:title" 
-        content="Vue学习 -组件间传值整理">
+        content="基于 uni-app 和腾讯地图 SDK 实现水印相机">
     
     
       <meta 
         property="og:url" 
-        content="http://example.com/2025/05/15/sendValue/index.html">
+        content="http://example.com/2025/08/07/camera/index.html">
     
     
       <meta 
@@ -42,7 +42,7 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2025-05-15">
+        content="2025-08-07">
       <meta 
         property="og:article:modified_time" 
         content="2025-08-07">
@@ -53,11 +53,11 @@
         
           <meta 
             property="og:article:tag" 
-            content="基础整理">
+            content="实际项目开发总结">
         
           <meta 
             property="og:article:tag" 
-            content="slot">
+            content="水印相机">
         
       
     
@@ -326,7 +326,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#slot%E6%8F%92%E6%A7%BD"><span class="toc-text">slot插槽</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="toc-text">一、项目背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E6%A6%82%E8%A7%88"><span class="toc-text">二、技术方案概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3"><span class="toc-text">三、核心功能代码讲解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E5%AE%9A%E4%BD%8D%EF%BC%88%E7%BB%8F%E7%BA%AC%E5%BA%A6%EF%BC%89"><span class="toc-text">1. 获取当前定位（经纬度）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BB%8F%E7%BA%AC%E5%BA%A6-%E2%86%92-%E5%9C%B0%E5%9D%80%EF%BC%9A%E8%B0%83%E7%94%A8%E8%85%BE%E8%AE%AF%E5%9C%B0%E5%9B%BE-SDK"><span class="toc-text">2. 经纬度 → 地址：调用腾讯地图 SDK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B7%BB%E5%8A%A0%E6%97%B6%E9%97%B4%E4%B8%8E%E5%9C%B0%E5%9D%80%E6%B0%B4%E5%8D%B0%E5%88%B0%E5%9B%BE%E7%89%87%E4%B8%8A"><span class="toc-text">3. 添加时间与地址水印到图片上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%A4%9A%E5%9B%BE%E5%B1%82-Logo-%E6%B0%B4%E5%8D%B0%EF%BC%88%E6%B7%A1%E5%8C%96%E8%83%8C%E6%99%AF%EF%BC%89"><span class="toc-text">4. 多图层 Logo 水印（淡化背景）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%AF%BC%E5%87%BA%E5%B9%B6%E4%BF%9D%E5%AD%98%E5%9B%BE%E7%89%87%E5%88%B0%E7%9B%B8%E5%86%8C"><span class="toc-text">5. 导出并保存图片到相册</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%B8%B8%E8%A7%81%E5%9D%91%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">四、常见坑及注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%80%BB%E7%BB%93%E4%B8%8E%E6%89%A9%E5%B1%95"><span class="toc-text">五、总结与扩展</span></a></li></ol>
       </div>
     </article>
   
@@ -436,22 +436,28 @@
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      Vue学习 -组件间传值整理
+      基于 uni-app 和腾讯地图 SDK 实现水印相机
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-05-15T00:00:00.000Z">
+    <time datetime="2025-08-07T00:00:00.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2025-05-15</span>
+      <span>2025-08-07</span>
     </time>
     
       <span class="dot"></span>
       
         <a 
-          href="/categories/%E5%89%8D%E7%AB%AF/" 
+          href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" 
+          class="post-meta-link">
+          微信小程序
+        </a>
+      
+        <a 
+          href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%89%8D%E7%AB%AF/" 
           class="post-meta-link">
           前端
         </a>
@@ -459,7 +465,7 @@
     
     
       <span class="dot"></span>
-      <span>135 字</span>
+      <span>677 字</span>
     
   </div>
   
@@ -474,18 +480,18 @@
         
           
           <a 
-            href="/tags/%E5%9F%BA%E7%A1%80%E6%95%B4%E7%90%86/" 
+            href="/tags/%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93/" 
             class="post-meta-link">
-            基础整理
+            实际项目开发总结
           </a>
         
           
             <span class="dot"></span>
           
           <a 
-            href="/tags/slot/" 
+            href="/tags/%E6%B0%B4%E5%8D%B0%E7%9B%B8%E6%9C%BA/" 
             class="post-meta-link">
-            slot
+            水印相机
           </a>
         
       </div>
@@ -495,20 +501,46 @@
   <div 
     id="section" 
     class="post-content">
-    <h4 id="slot插槽"><a href="#slot插槽" class="headerlink" title="slot插槽"></a>slot插槽</h4><p>(1)默认插槽<br></p>
-<p>
-  父组件调用子组件标签,在子组件标签中写的东西会被传递到子组件写的slot中
-</p>
-(2)具名插槽<br> 
-<p>
-  子组件的slot有name属性是具名,没有name是匿名,父组件中不需要写子组件标签,在需要传值的地方用template包裹,v-slot的value对应子组件name的value
-</p>
-(3)作用域插槽<br>
-<p>
-  子组件传值给父组件:slot中传递属性,储存在父组件的v-slot的value中<br>
-  解构
-</p>
-#### props配置项
+    <h2 id="一、项目背景"><a href="#一、项目背景" class="headerlink" title="一、项目背景"></a>一、项目背景</h2><p>在我参与的实习项目中，有一个功能需求是实现一款微信小程序“水印相机”。用户拍照后，系统会自动在照片中加上当前的拍摄时间、详细的地理位置信息以及平台水印 Logo。</p>
+<p>为了实现跨端复用，我们选择了 <code>uni-app</code> 框架进行开发。在定位功能实现上，微信原生的 <code>getLocation</code> 只能返回经纬度，因此我们引入了腾讯地图 SDK，通过 <code>reverseGeocoder</code> 实现从坐标到地址的反解析，最终组合成可导出的带水印图片。</p>
+<hr>
+<h2 id="二、技术方案概览"><a href="#二、技术方案概览" class="headerlink" title="二、技术方案概览"></a>二、技术方案概览</h2><ul>
+<li>使用 <code>uni.chooseImage</code> 进行拍照上传</li>
+<li>用 <code>uni.getLocation</code> 获取 GPS 坐标</li>
+<li>接入 <code>qqmap-wx-jssdk</code> 获取用户地址（逆地理解析）</li>
+<li>使用 <code>canvas</code> 绘制图片 + 多行文字 + 平铺 Logo 水印</li>
+<li>用 <code>uni.canvasToTempFilePath</code> 导出图片 + 自动保存到相册</li>
+</ul>
+<hr>
+<h2 id="三、核心功能代码讲解"><a href="#三、核心功能代码讲解" class="headerlink" title="三、核心功能代码讲解"></a>三、核心功能代码讲解</h2><h3 id="1-获取当前定位（经纬度）"><a href="#1-获取当前定位（经纬度）" class="headerlink" title="1. 获取当前定位（经纬度）"></a>1. 获取当前定位（经纬度）</h3><pre class="highlight"><span class="line"><span class="keyword">async</span> <span class="title function_">getLocation</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    uni.<span class="title function_">getLocation</span>(&#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&#x27;gcj02&#x27;</span>,</span><br><span class="line">      <span class="attr">success</span>: <span class="function"><span class="params">res</span> =&gt;</span> <span class="title function_">resolve</span>(res),</span><br><span class="line">      <span class="attr">fail</span>: <span class="function"><span class="params">err</span> =&gt;</span> <span class="title function_">reject</span>(<span class="string">&#x27;未知地址&#x27;</span>)</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre>
+
+<h3 id="2-经纬度-→-地址：调用腾讯地图-SDK"><a href="#2-经纬度-→-地址：调用腾讯地图-SDK" class="headerlink" title="2. 经纬度 → 地址：调用腾讯地图 SDK"></a>2. 经纬度 → 地址：调用腾讯地图 SDK</h3><pre class="highlight"><span class="line"><span class="keyword">const</span> geoRes = <span class="keyword">await</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  qqmapsdk.<span class="title function_">reverseGeocoder</span>(&#123;</span><br><span class="line">    <span class="attr">location</span>: &#123;</span><br><span class="line">      <span class="attr">latitude</span>: locationRes.<span class="property">latitude</span>,</span><br><span class="line">      <span class="attr">longitude</span>: locationRes.<span class="property">longitude</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">success</span>: <span class="function"><span class="params">res</span> =&gt;</span> <span class="title function_">resolve</span>(res),</span><br><span class="line">    <span class="attr">fail</span>: <span class="function"><span class="params">err</span> =&gt;</span> <span class="title function_">reject</span>(err)</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre>
+
+<h3 id="3-添加时间与地址水印到图片上"><a href="#3-添加时间与地址水印到图片上" class="headerlink" title="3. 添加时间与地址水印到图片上"></a>3. 添加时间与地址水印到图片上</h3><pre class="highlight"><span class="line">ctx.<span class="title function_">setFontSize</span>(fontSize);</span><br><span class="line">ctx.<span class="title function_">setFillStyle</span>(<span class="string">&#x27;#FFFFFF&#x27;</span>);</span><br><span class="line">ctx.<span class="title function_">fillText</span>(<span class="string">&#x27;认证:装饰装修保障服务平台&#x27;</span>, <span class="number">20</span>, baseY + lineSpacing);</span><br><span class="line">ctx.<span class="title function_">fillText</span>(<span class="string">`经纬度: <span class="subst">$&#123;longitude&#125;</span>, <span class="subst">$&#123;latitude&#125;</span>`</span>, <span class="number">20</span>, baseY);</span><br><span class="line">ctx.<span class="title function_">fillText</span>(addressText, <span class="number">20</span>, baseY - lineSpacing);</span><br><span class="line">ctx.<span class="title function_">fillText</span>(<span class="variable language_">this</span>.<span class="property">time</span>, <span class="number">20</span>, baseY - <span class="number">2</span> * lineSpacing);</span><br></pre>
+
+<h3 id="4-多图层-Logo-水印（淡化背景）"><a href="#4-多图层-Logo-水印（淡化背景）" class="headerlink" title="4. 多图层 Logo 水印（淡化背景）"></a>4. 多图层 Logo 水印（淡化背景）</h3><pre class="highlight"><span class="line">ctx.<span class="title function_">setGlobalAlpha</span>(<span class="number">0.2</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="variable language_">this</span>.<span class="property">photoWidth</span>; i += markW) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; <span class="variable language_">this</span>.<span class="property">photoHeight</span>; j += markH) &#123;</span><br><span class="line">    ctx.<span class="title function_">drawImage</span>(<span class="variable language_">this</span>.<span class="property">appNameWatermark</span>, i, j, markW, markH);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre>
+
+<h3 id="5-导出并保存图片到相册"><a href="#5-导出并保存图片到相册" class="headerlink" title="5. 导出并保存图片到相册"></a>5. 导出并保存图片到相册</h3><pre class="highlight"><span class="line">uni.<span class="title function_">canvasToTempFilePath</span>(&#123;</span><br><span class="line">  <span class="attr">canvasId</span>: <span class="string">&#x27;canvasWatermark&#x27;</span>,</span><br><span class="line">  <span class="attr">success</span>: <span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">photoUrl</span> = result.<span class="property">tempFilePath</span>;</span><br><span class="line">    uni.<span class="title function_">saveImageToPhotosAlbum</span>(&#123; <span class="attr">filePath</span>: <span class="variable language_">this</span>.<span class="property">photoUrl</span> &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre>
+
+<hr>
+<h2 id="四、常见坑及注意事项"><a href="#四、常见坑及注意事项" class="headerlink" title="四、常见坑及注意事项"></a>四、常见坑及注意事项</h2><ul>
+<li><code>canvas-id</code> 与 <code>canvasId</code> 要对应，注意大小写</li>
+<li><code>draw()</code> 后必须等回调后再执行 <code>canvasToTempFilePath</code></li>
+<li>iOS 下图片宽高与 canvas 绘图比例可能不一致</li>
+<li>使用 <code>saveImageToPhotosAlbum</code> 前需用户授权</li>
+</ul>
+<hr>
+<h2 id="五、总结与扩展"><a href="#五、总结与扩展" class="headerlink" title="五、总结与扩展"></a>五、总结与扩展</h2><p>本次功能实现让我熟悉了 <code>uni-app</code> 在微信小程序平台的能力边界，同时也理解了引入第三方 SDK（如腾讯地图）的实际价值。</p>
+<p>如果后续要拓展，还可以支持：</p>
+<ul>
+<li>拍摄视频并添加水印</li>
+<li>自定义水印模板内容（如打卡名称、项目编号）</li>
+<li>上传至云存储平台（如腾讯云 COS、阿里云 OSS）</li>
+</ul>
+<hr>
+<blockquote>
+<p>如果你对 <code>qqmap-wx-jssdk</code> 的其他 API 感兴趣，也欢迎查阅：<a target="_blank" rel="noopener" href="https://lbs.qq.com/miniProgram/jsSdk">腾讯地图小程序开发文档</a></p>
+</blockquote>
 
   </div>
   <div>
@@ -517,29 +549,15 @@
 </article>
 <div class="nav">
   
-    <div class="nav-item-prev">
-      <a 
-        href="/2025/08/07/flex/" 
-        class="nav-link">
-        <i class="iconfont icon-left nav-prev-icon"></i>
-        <div>
-          <div class="nav-label">上一篇</div>
-          
-            <div class="nav-title">flex弹性布局 </div>
-          
-        </div>
-      </a>
-    </div>
-  
   
     <div class="nav-item-next">
       <a 
-        href="/2025/05/14/project/" 
+        href="/2025/08/07/flex/" 
         class="nav-link">
         <div>
           <div class="nav-label">下一篇</div>
           
-            <div class="nav-title">项目二-(1)用户登录 </div>
+            <div class="nav-title">flex弹性布局 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
@@ -557,7 +575,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#slot%E6%8F%92%E6%A7%BD"><span class="toc-text">slot插槽</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="toc-text">一、项目背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E6%A6%82%E8%A7%88"><span class="toc-text">二、技术方案概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3"><span class="toc-text">三、核心功能代码讲解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E5%AE%9A%E4%BD%8D%EF%BC%88%E7%BB%8F%E7%BA%AC%E5%BA%A6%EF%BC%89"><span class="toc-text">1. 获取当前定位（经纬度）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BB%8F%E7%BA%AC%E5%BA%A6-%E2%86%92-%E5%9C%B0%E5%9D%80%EF%BC%9A%E8%B0%83%E7%94%A8%E8%85%BE%E8%AE%AF%E5%9C%B0%E5%9B%BE-SDK"><span class="toc-text">2. 经纬度 → 地址：调用腾讯地图 SDK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B7%BB%E5%8A%A0%E6%97%B6%E9%97%B4%E4%B8%8E%E5%9C%B0%E5%9D%80%E6%B0%B4%E5%8D%B0%E5%88%B0%E5%9B%BE%E7%89%87%E4%B8%8A"><span class="toc-text">3. 添加时间与地址水印到图片上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%A4%9A%E5%9B%BE%E5%B1%82-Logo-%E6%B0%B4%E5%8D%B0%EF%BC%88%E6%B7%A1%E5%8C%96%E8%83%8C%E6%99%AF%EF%BC%89"><span class="toc-text">4. 多图层 Logo 水印（淡化背景）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%AF%BC%E5%87%BA%E5%B9%B6%E4%BF%9D%E5%AD%98%E5%9B%BE%E7%89%87%E5%88%B0%E7%9B%B8%E5%86%8C"><span class="toc-text">5. 导出并保存图片到相册</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%B8%B8%E8%A7%81%E5%9D%91%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">四、常见坑及注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%80%BB%E7%BB%93%E4%B8%8E%E6%89%A9%E5%B1%95"><span class="toc-text">五、总结与扩展</span></a></li></ol>
 </div>
             </main>
             <aside class="right-column">
@@ -571,7 +589,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#slot%E6%8F%92%E6%A7%BD"><span class="toc-text">slot插槽</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="toc-text">一、项目背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E6%A6%82%E8%A7%88"><span class="toc-text">二、技术方案概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3"><span class="toc-text">三、核心功能代码讲解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E5%AE%9A%E4%BD%8D%EF%BC%88%E7%BB%8F%E7%BA%AC%E5%BA%A6%EF%BC%89"><span class="toc-text">1. 获取当前定位（经纬度）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BB%8F%E7%BA%AC%E5%BA%A6-%E2%86%92-%E5%9C%B0%E5%9D%80%EF%BC%9A%E8%B0%83%E7%94%A8%E8%85%BE%E8%AE%AF%E5%9C%B0%E5%9B%BE-SDK"><span class="toc-text">2. 经纬度 → 地址：调用腾讯地图 SDK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B7%BB%E5%8A%A0%E6%97%B6%E9%97%B4%E4%B8%8E%E5%9C%B0%E5%9D%80%E6%B0%B4%E5%8D%B0%E5%88%B0%E5%9B%BE%E7%89%87%E4%B8%8A"><span class="toc-text">3. 添加时间与地址水印到图片上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%A4%9A%E5%9B%BE%E5%B1%82-Logo-%E6%B0%B4%E5%8D%B0%EF%BC%88%E6%B7%A1%E5%8C%96%E8%83%8C%E6%99%AF%EF%BC%89"><span class="toc-text">4. 多图层 Logo 水印（淡化背景）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%AF%BC%E5%87%BA%E5%B9%B6%E4%BF%9D%E5%AD%98%E5%9B%BE%E7%89%87%E5%88%B0%E7%9B%B8%E5%86%8C"><span class="toc-text">5. 导出并保存图片到相册</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%B8%B8%E8%A7%81%E5%9D%91%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">四、常见坑及注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%80%BB%E7%BB%93%E4%B8%8E%E6%89%A9%E5%B1%95"><span class="toc-text">五、总结与扩展</span></a></li></ol>
     </article>
   
   
