@@ -9,6 +9,10 @@ category: 前端
 #### 规定flexbox
 <p>写display : flex</p>
 
+- flex-basis:子元素宽度,写在子元素上
+
+- flex-shrink: 1 ;超出容器时自动缩小
+
 #### 定主轴方向--规定子元素排列方向
 ##### flex-direction:
 - <p>row(默认值):横向排列</p>
@@ -37,6 +41,10 @@ category: 前端
 - <p>space-around:首尾靠边空1/2,中间均匀分布</p>
 - <p>space-evenly:所有空隙一样分布</p>
 
+#### 元素换行
+##### flex-wrap:
+- nowrap:不换行
+- wrap:换行
 
 
 
