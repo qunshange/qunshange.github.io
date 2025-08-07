@@ -9,4 +9,6 @@ category: 前端
 ##### 规定flexbox
 <p>写display:flex</p>
 
-#####
+##### 定主轴方向
+<p>flex-direction</p>
+
