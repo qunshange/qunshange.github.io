@@ -45,7 +45,7 @@
         content="2025-08-07">
       <meta 
         property="og:article:modified_time" 
-        content="2025-08-07">
+        content="2025-08-08">
       <meta 
         property="og:article:author" 
         content="群山鸽">
@@ -389,15 +389,15 @@
       </a>
     
       <a 
-        href="/tags/%E7%BB%84%E4%BB%B6%E5%BA%93/" 
-        title="组件库">
-        <div class="tags-list-item">组件库</div>
-      </a>
-    
-      <a 
         href="/tags/slot/" 
         title="slot">
         <div class="tags-list-item">slot</div>
+      </a>
+    
+      <a 
+        href="/tags/%E7%BB%84%E4%BB%B6%E5%BA%93/" 
+        title="组件库">
+        <div class="tags-list-item">组件库</div>
       </a>
     
       <a 
@@ -465,7 +465,7 @@
     
     
       <span class="dot"></span>
-      <span>677 字</span>
+      <span>696 字</span>
     
   </div>
   
@@ -502,12 +502,12 @@
     id="section" 
     class="post-content">
     <h2 id="一、项目背景"><a href="#一、项目背景" class="headerlink" title="一、项目背景"></a>一、项目背景</h2><p>在我参与的实习项目中，有一个功能需求是实现一款微信小程序“水印相机”。用户拍照后，系统会自动在照片中加上当前的拍摄时间、详细的地理位置信息以及平台水印 Logo。</p>
-<p>为了实现跨端复用，我们选择了 <code>uni-app</code> 框架进行开发。在定位功能实现上，微信原生的 <code>getLocation</code> 只能返回经纬度，因此我们引入了腾讯地图 SDK，通过 <code>reverseGeocoder</code> 实现从坐标到地址的反解析，最终组合成可导出的带水印图片。</p>
+<p>为了实现跨端复用，我们选择了 <code>uni-app</code> 框架进行开发。在定位功能实现上，微信原生的 <code>getLocation</code> 只能返回经纬度，因此我们引入了腾讯地图 SDK，通过 <code>reverseGeocoder</code> 实现从坐标到地址的反解析，最终使用<code>canvas</code>打印地址时间信息,组合成可导出的带水印图片。</p>
 <hr>
 <h2 id="二、技术方案概览"><a href="#二、技术方案概览" class="headerlink" title="二、技术方案概览"></a>二、技术方案概览</h2><ul>
 <li>使用 <code>uni.chooseImage</code> 进行拍照上传</li>
 <li>用 <code>uni.getLocation</code> 获取 GPS 坐标</li>
-<li>接入 <code>qqmap-wx-jssdk</code> 获取用户地址（逆地理解析）</li>
+<li>引入<code>微信小程序jsSDK</code>,接入 <code>qqmap-wx-jssdk</code> 获取用户地址（逆地理解析）</li>
 <li>使用 <code>canvas</code> 绘制图片 + 多行文字 + 平铺 Logo 水印</li>
 <li>用 <code>uni.canvasToTempFilePath</code> 导出图片 + 自动保存到相册</li>
 </ul>
