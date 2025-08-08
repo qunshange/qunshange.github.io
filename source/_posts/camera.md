@@ -28,14 +28,14 @@ category:
 ---
 
 ## 三、核心功能代码讲解
-
+<P>前置操作 : 在腾讯位置服务的开发文档中找到申请密钥入口申请密钥,然后开通api服务,下载sdk并放在代码文件夹下的对应位置,在小程序管理后台中设置request合法域名;最后在代码中引入sdk核心类</P>
 ### 1. 获取当前定位（经纬度）
 
 ```js
 async getLocation() {
   return new Promise((resolve, reject) => {
     uni.getLocation({
-      type: 'gcj02',
+      type: 'gcj02',//中国加密坐标系
       success: res => resolve(res),
       fail: err => reject('未知地址')
     });
@@ -94,12 +94,10 @@ uni.canvasToTempFilePath({
 
 ---
 
-## 四、常见坑及注意事项
+## 四、代码思路
 
-- `canvas-id` 与 `canvasId` 要对应，注意大小写
-- `draw()` 后必须等回调后再执行 `canvasToTempFilePath`
-- iOS 下图片宽高与 canvas 绘图比例可能不一致
-- 使用 `saveImageToPhotosAlbum` 前需用户授权
+- 
+
 
 ---
 
