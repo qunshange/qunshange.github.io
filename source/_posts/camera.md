@@ -13,7 +13,7 @@ category:
 
 在我参与的实习项目中，有一个功能需求是实现一款微信小程序“水印相机”。用户拍照后，系统会自动在照片中加上当前的拍摄时间、详细的地理位置信息以及平台水印 Logo。
 
-为了实现跨端复用，我们选择了 `uni-app` 框架进行开发。在定位功能实现上，微信原生的 `getLocation` 只能返回经纬度，因此我们引入了腾讯地图 SDK，通过 `reverseGeocoder` 实现从坐标到地址的反解析，最终组合成可导出的带水印图片。
+为了实现跨端复用，我们选择了 `uni-app` 框架进行开发。在定位功能实现上，微信原生的 `getLocation` 只能返回经纬度，因此我们引入了腾讯地图 SDK，通过 `reverseGeocoder` 实现从坐标到地址的反解析，最终使用`canvas`打印地址时间信息,组合成可导出的带水印图片。
 
 ---
 
@@ -21,7 +21,7 @@ category:
 
 - 使用 `uni.chooseImage` 进行拍照上传
 - 用 `uni.getLocation` 获取 GPS 坐标
-- 接入 `qqmap-wx-jssdk` 获取用户地址（逆地理解析）
+- 引入`微信小程序jsSDK`,接入 `qqmap-wx-jssdk` 获取用户地址（逆地理解析）
 - 使用 `canvas` 绘制图片 + 多行文字 + 平铺 Logo 水印
 - 用 `uni.canvasToTempFilePath` 导出图片 + 自动保存到相册
 
