@@ -113,4 +113,4 @@ uni.canvasToTempFilePath({
 
 ---
 
-> 如果你对 `qqmap-wx-jssdk` 的其他 API 感兴趣，也欢迎查阅：[腾讯地图小程序开发文档](https://lbs.qq.com/miniProgram/jsSdk)
+> 如果你对 `qqmap-wx-jssdk` 的其他 API 感兴趣，也欢迎查阅：[腾讯地图小程序开发文档](https://lbs.qq.com/miniProgram/jsSdk/jsSdkGuide/jsSdkOverview)
