@@ -1,8 +1,9 @@
 ---
-title: Vue学习 - 组件间传值
+title: 组件间传值
 date: 2025-05-15
+excerpt: slot和props
 tag: 
-- 基础整理
+- vue
 - slot
 - props
 category: 前端
