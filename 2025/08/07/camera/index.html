@@ -36,6 +36,10 @@
         content="https://q2.qlogo.cn/headimg_dl?dst_uin=2502353568&amp;spec=5">
     
     
+      <meta 
+        property="og:img" 
+        content="实习期写的功能">
+    
     
       <meta 
         property="og:type" 
@@ -513,8 +517,8 @@
   <div 
     id="section" 
     class="post-content">
-    <h2 id="一、项目背景"><a href="#一、项目背景" class="headerlink" title="一、项目背景"></a>一、项目背景</h2><p>在我参与的实习项目中，有一个功能需求是实现一款微信小程序“水印相机”。用户拍照后，系统会自动在照片中加上当前的拍摄时间、详细的地理位置信息以及平台水印 Logo。</p>
-<p>为了实现跨端复用，我们选择了 <code>uni-app</code> 框架进行开发。在定位功能实现上，微信原生的 <code>getLocation</code> 只能返回经纬度，因此我们引入了腾讯地图 SDK，通过 <code>reverseGeocoder</code> 实现从坐标到地址的反解析，最终使用<code>canvas</code>打印地址时间信息,组合成可导出的带水印图片。</p>
+    <h2 id="一、项目背景"><a href="#一、项目背景" class="headerlink" title="一、项目背景"></a>一、项目背景</h2><p>微信小程序“水印相机” :用户拍照后，系统会自动在照片中加上当前的拍摄时间、详细的地理位置信息以及平台水印 Logo。</p>
+<p>为了实现跨端复用，我们选择了 <code>uni-app</code> 框架进行开发。在定位功能实现上，微信原生的 <code>getLocation</code> 只能返回经纬度，因此我引入了腾讯地图 SDK，通过 <code>reverseGeocoder</code> 实现从坐标到地址的反解析，最终使用<code>canvas</code>打印地址时间信息,组合成可导出的带水印图片。</p>
 <hr>
 <h2 id="二、技术方案概览"><a href="#二、技术方案概览" class="headerlink" title="二、技术方案概览"></a>二、技术方案概览</h2><ul>
 <li>使用 <code>uni.chooseImage</code> 进行拍照上传</li>
