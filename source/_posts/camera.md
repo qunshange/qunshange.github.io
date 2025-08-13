@@ -36,7 +36,7 @@ category:
 
 ### 1. 获取当前定位（经纬度）
 
-```js
+```javascript
 async getLocation() {
   return new Promise((resolve, reject) => {
     uni.getLocation({
@@ -50,7 +50,7 @@ async getLocation() {
 
 ### 2. 经纬度 → 地址：调用腾讯地图 SDK
 
-```js
+```javascript
 const geoRes = await new Promise((resolve, reject) => {
   qqmapsdk.reverseGeocoder({
     location: {
@@ -65,7 +65,7 @@ const geoRes = await new Promise((resolve, reject) => {
 
 ### 3. 添加时间与地址水印到图片上
 
-```js
+```javascript
 ctx.setFontSize(fontSize);
 ctx.setFillStyle('#FFFFFF');
 ctx.fillText('xxxxxxx', 20, baseY + lineSpacing);
@@ -76,7 +76,7 @@ ctx.fillText(this.time, 20, baseY - 2 * lineSpacing);
 
 ### 4. 多图层 Logo 水印（淡化背景）
 
-```js
+```javascript
 ctx.setGlobalAlpha(0.2);
 for (let i = 0; i < this.photoWidth; i += markW) {
   for (let j = 0; j < this.photoHeight; j += markH) {
@@ -87,7 +87,7 @@ for (let i = 0; i < this.photoWidth; i += markW) {
 
 ### 5. 导出并保存图片到相册
 
-```js
+```javascript
 uni.canvasToTempFilePath({
   canvasId: 'canvasWatermark',
   success: (result) => {
@@ -105,7 +105,7 @@ uni.canvasToTempFilePath({
   按钮绑定点击事件,点击事件中 `chooseImage` 上传图片,限制数量和来源,在其中保存图片路径
 
 
-```js
+```javascript
 uni.chooseImage({
   count: 1, // 只选一张图片
   sourceType: ['camera'], // 限制来源为相机
@@ -124,7 +124,7 @@ uni.chooseImage({
   调用 `addWatermarkToImage` 方法
 
 
-```js
+```javascript
 uni.getImageInfo({
   src: this.photoUrl,
   success: (info) => {
@@ -137,10 +137,10 @@ uni.getImageInfo({
 ```
 #### 3.添加水印初始化
 在 `addWatermarkToImage` 方法中，首先将 `showCanvas` 设置为 `true` 并通过 `await this.$nextTick()` 等待视图更新，确保 `<canvas>` 元素已经渲染到页面上，然后通过 `uni.createCanvasContext('canvasWatermark', this)` 获取当前组件作用域下的画布上下文对象 `ctx`，用于后续绘图。接着调用 `this.getLocation()` 获取当前经纬度，并使用 `this.getTime()` 记录当前时间字符串。为了得到更直观的位置信息，通过腾讯地图 SDK 的 `reverseGeocoder` 接口将经纬度转换为具体的地址字符串，如果解析失败则使用 `'未知地址'` 作为兜底。
-```js
+```javascript
  async addWatermarkToImage()
 ```
-```js
+```javascript
       this.showCanvas = true;
       await this.$nextTick();
       const locationRes = await this.getLocation();
@@ -166,7 +166,7 @@ uni.getImageInfo({
 ```
 #### 4.添加水印
 获取到定位与时间信息后，先调用 `ctx.drawImage(this.photoUrl, 0, 0, this.photoWidth, this.photoHeight)` 将原始照片绘制到画布上，然后根据图片宽度动态计算 `fontSize`、`lineSpacing` 和底部起始坐标 `baseY`，并将经纬度保留两位小数用于显示。为了绘制背景 Logo 水印，先将全局透明度设置为 0.2，通过 `uni.getImageInfo` 获取 Logo 图片尺寸，使用双层循环将 Logo 平铺绘制到整个画布区域。接着恢复透明度为 1.0，设置字体大小、颜色和对齐方式，从下往上依次绘制认证信息、经纬度、地址和时间四行文字水印。
-```js
+```javascript
       const ctx = uni.createCanvasContext('canvasWatermark', this);
       ctx.drawImage(this.photoUrl, 0, 0, this.photoWidth, this.photoHeight);
       const fontSize = this.photoWidth / 25;
@@ -200,7 +200,7 @@ uni.getImageInfo({
 ```
 #### 5.保存图片
 绘制完成后，调用 `ctx.draw(true, callback)` 并在回调中使用 `uni.canvasToTempFilePath` 将带水印的画布导出为临时图片文件，并赋值给 `photoUrl` 更新页面显示，同时将 `showCanvas` 设为 `false` 隐藏画布。最后调用 `uni.saveImageToPhotosAlbum` 自动保存图片到系统相册，如果用户未授权保存权限则通过弹窗引导其前往设置界面开启权限。
-```js
+```javascript
           ctx.draw(true, () => {
             uni.canvasToTempFilePath({
               canvasId: 'canvasWatermark',
