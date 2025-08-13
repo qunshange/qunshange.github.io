@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="https://q2.qlogo.cn/headimg_dl?dst_uin=2502353568&amp;spec=5">
-  <title>项目二-(1)用户登录</title>
+  <title>uniApp 表单搜索接口对接实战：数据名称查询与数据绑定</title>
   
     
       <meta 
         property="og:title" 
-        content="项目二-(1)用户登录">
+        content="uniApp 表单搜索接口对接实战：数据名称查询与数据绑定">
     
     
       <meta 
         property="og:url" 
-        content="http://example.com/2025/05/14/project/index.html">
+        content="http://example.com/2025/08/13/20250814/index.html">
     
     
       <meta 
@@ -42,7 +42,7 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2025-05-14">
+        content="2025-08-13">
       <meta 
         property="og:article:modified_time" 
         content="2025-08-13">
@@ -53,7 +53,11 @@
         
           <meta 
             property="og:article:tag" 
-            content="项目练习">
+            content="实际项目开发总结">
+        
+          <meta 
+            property="og:article:tag" 
+            content="axios">
         
       
     
@@ -322,7 +326,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyLogin%E9%A1%B5%E9%9D%A2"><span class="toc-text">MyLogin页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">1.实现功能:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E9%97%AE%E9%A2%98"><span class="toc-text">2.问题:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-text">3.代码片段</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#localStorage"><span class="toc-text">localStorage</span></a></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#uniApp-%E8%A1%A8%E5%8D%95%E6%90%9C%E7%B4%A2%E6%8E%A5%E5%8F%A3%E5%AF%B9%E6%8E%A5%E5%AE%9E%E6%88%98%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%90%8D%E7%A7%B0%E6%9F%A5%E8%AF%A2%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A"><span class="toc-text">uniApp 表单搜索接口对接实战：数据名称查询与数据绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-text">一、功能需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%EF%BC%88axios-%E8%AF%B7%E6%B1%82%EF%BC%89"><span class="toc-text">二、接口实现（axios 请求）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E6%96%B9%E6%B3%95"><span class="toc-text">三、数据结构与方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%A8%A1%E6%9D%BF%E7%BB%91%E5%AE%9A%E4%B8%8E%E5%B1%95%E7%A4%BA"><span class="toc-text">四、模板绑定与展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E4%BA%A4%E4%BA%92%E4%B8%8E%E7%BB%86%E8%8A%82%E4%BC%98%E5%8C%96-%E5%BE%85%E5%AE%9E%E7%8E%B0"><span class="toc-text">五、交互与细节优化(待实现)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E8%BF%90%E8%A1%8C%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-text">六、运行流程图</span></a></li></ol></li></ol>
       </div>
     </article>
   
@@ -449,16 +453,16 @@
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      项目二-(1)用户登录
+      uniApp 表单搜索接口对接实战：数据名称查询与数据绑定
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-05-14T00:00:00.000Z">
+    <time datetime="2025-08-13T00:00:00.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2025-05-14</span>
+      <span>2025-08-13</span>
     </time>
     
       <span class="dot"></span>
@@ -469,10 +473,16 @@
           前端
         </a>
       
+        <a 
+          href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" 
+          class="post-meta-link">
+          微信小程序
+        </a>
+      
     
     
       <span class="dot"></span>
-      <span>521 字</span>
+      <span>811 字</span>
     
   </div>
   
@@ -487,9 +497,18 @@
         
           
           <a 
-            href="/tags/%E9%A1%B9%E7%9B%AE%E7%BB%83%E4%B9%A0/" 
+            href="/tags/%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93/" 
             class="post-meta-link">
-            项目练习
+            实际项目开发总结
+          </a>
+        
+          
+            <span class="dot"></span>
+          
+          <a 
+            href="/tags/axios/" 
+            class="post-meta-link">
+            axios
           </a>
         
       </div>
@@ -499,65 +518,51 @@
   <div 
     id="section" 
     class="post-content">
-    <h4 id="MyLogin页面"><a href="#MyLogin页面" class="headerlink" title="MyLogin页面"></a>MyLogin页面</h4><h5 id="1-实现功能"><a href="#1-实现功能" class="headerlink" title="1.实现功能:"></a>1.实现功能:<br></h5>  <p>
-  (1)登录表单区域中通过双向绑定,默认账号密码,点击登录时将账号密码信息传给后端,后端验证账号密码(代码在下面)<br>
-  (2)重置表单中存在的账号密码信息<br>
-  (3)用sessionStorage将数据存储在服务器内,仅在前端使用,不参与服务器通信<br>
-  (4)登录后路由跳转到用户主页
-</p>
+    <h2 id="uniApp-表单搜索接口对接实战：数据名称查询与数据绑定"><a href="#uniApp-表单搜索接口对接实战：数据名称查询与数据绑定" class="headerlink" title="uniApp 表单搜索接口对接实战：数据名称查询与数据绑定"></a>uniApp 表单搜索接口对接实战：数据名称查询与数据绑定</h2><p>在表单类业务场景中，用户输入的内容往往需要与后端进行匹配验证，比如在商家备案流程中输入<strong>名称</strong>并进行搜索。本文将用 Vue&#x2F;Uni-App + axios 实现一个完整的搜索、校验、数据回填功能。</p>
+<hr>
+<h3 id="一、功能需求分析"><a href="#一、功能需求分析" class="headerlink" title="一、功能需求分析"></a>一、功能需求分析</h3><ol>
+<li><p><strong>接口请求</strong><br>从后端接口(公司提供)获取要搜索的内容信息。</p>
+</li>
+<li><p><strong>输入绑定</strong><br>绑定输入框值，使用 <code>.trim</code> 去掉首尾空格。</p>
+</li>
+<li><p><strong>空值校验</strong><br>输入为空时拦截搜索请求并提示用户。</p>
+</li>
+<li><p><strong>结果判断与回填</strong><br>根据接口返回内容，更新表单的 <code>name_id</code>、<code>intention_id</code> 和显示名称。</p>
+</li>
+<li><p><strong>状态控制</strong><br>设置一个 <code>Loaded</code> 标志，用于判断搜索是否已成功，防止用户跳过搜索直接提交。</p>
+</li>
+</ol>
+<hr>
+<h3 id="二、接口实现（axios-请求）"><a href="#二、接口实现（axios-请求）" class="headerlink" title="二、接口实现（axios 请求）"></a>二、接口实现（axios 请求）</h3><p>我们先创建 axios 实例（如果项目已配置全局 http 封装可以直接复用）：</p>
+<pre class="highlight"><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> http = axios.<span class="title function_">create</span>(&#123;</span><br><span class="line">  <span class="attr">baseURL</span>: <span class="variable constant_">HTTP_REQUEST_URL</span>,</span><br><span class="line">  <span class="attr">timeout</span>: <span class="number">15000</span>,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">http.<span class="property">interceptors</span>.<span class="property">response</span>.<span class="title function_">use</span>(<span class="function"><span class="params">r</span> =&gt;</span> r.<span class="property">data</span>, <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">  uni.<span class="title function_">showToast</span>(&#123; <span class="attr">title</span>: <span class="string">&#x27;网络异常&#x27;</span>, <span class="attr">icon</span>: <span class="string">&#x27;none&#x27;</span> &#125;)</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">reject</span>(e)</span><br><span class="line">&#125;)</span><br></pre>
 
-<h5 id="2-问题"><a href="#2-问题" class="headerlink" title="2.问题:"></a>2.问题:<br></h5><p>
-  (1)从哪里验证的账号密码信息<br>
-  (2)后端的token<br>
-  是服务器生成的一段字符串，代表用户的身份或权限，用于替代传统的用户名和密码进行后续请求的验证。
-</p>
+<hr>
+<h3 id="三、数据结构与方法"><a href="#三、数据结构与方法" class="headerlink" title="三、数据结构与方法"></a>三、数据结构与方法</h3><p>在页面 <code>data</code> 中定义所需字段：</p>
+<pre class="highlight"><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">applyData</span>: &#123;</span><br><span class="line">        <span class="attr">picName</span>: <span class="string">&#x27;&#x27;</span>,      <span class="comment">// 输入框绑定的名称</span></span><br><span class="line">        <span class="attr">item_id</span>: <span class="string">&#x27;&#x27;</span>,       <span class="comment">// 接口返回的ID信息</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">searchResult</span>: <span class="string">&#x27;&#x27;</span>,   <span class="comment">// 搜索结果展示</span></span><br><span class="line">      <span class="title class_">Loaded</span>: <span class="literal">false</span> <span class="comment">// 搜索成功标志</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">searchName</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> keyword = <span class="variable language_">this</span>.<span class="property">applyData</span>.<span class="property">picName</span>.<span class="title function_">trim</span>()</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 1. 空值拦截</span></span><br><span class="line">      <span class="keyword">if</span> (!keyword) &#123;</span><br><span class="line">        uni.<span class="title function_">showToast</span>(&#123; <span class="attr">title</span>: <span class="string">&#x27;请输入搜索名称&#x27;</span>, <span class="attr">icon</span>: <span class="string">&#x27;none&#x27;</span> &#125;)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 2. 发起请求</span></span><br><span class="line">        <span class="keyword">const</span> res = <span class="keyword">await</span> http.<span class="title function_">get</span>(<span class="string">&#x27;/接口&#x27;</span>, &#123;</span><br><span class="line">          <span class="attr">params</span>: &#123; <span class="attr">keywords</span>: keyword &#125;</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 返回结果判断</span></span><br><span class="line">        <span class="keyword">if</span> (res?.<span class="property">status</span> === <span class="number">200</span>) &#123;</span><br><span class="line">          <span class="keyword">const</span> data = res.<span class="property">data</span> || &#123;&#125;</span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">applyData</span>.<span class="property">item_id</span> = data.<span class="property">item_id</span></span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">searchResult</span> = data.<span class="property">item_name</span> || <span class="string">&#x27;&#x27;</span></span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">Loaded</span> = <span class="literal">true</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          uni.<span class="title function_">showToast</span>(&#123; <span class="attr">title</span>: <span class="string">&#x27;没有找到相关信息&#x27;</span>, <span class="attr">icon</span>: <span class="string">&#x27;none&#x27;</span> &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;搜索错误：&#x27;</span>, e)</span><br><span class="line">        uni.<span class="title function_">showToast</span>(&#123; <span class="attr">title</span>: <span class="string">&#x27;请求失败&#x27;</span>, <span class="attr">icon</span>: <span class="string">&#x27;none&#x27;</span> &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre>
 
+<hr>
+<h3 id="四、模板绑定与展示"><a href="#四、模板绑定与展示" class="headerlink" title="四、模板绑定与展示"></a>四、模板绑定与展示</h3><p>使用 <code>v-model.trim</code> 绑定输入框，保证输入自动去除空格。搜索按钮点击后调用 <code>searchName</code> 方法。</p>
+<pre class="highlight"><span class="line">&lt;view class=&quot;seek-item&quot;&gt;</span><br><span class="line">  &lt;view&gt;</span><br><span class="line">    //搜索框</span><br><span class="line">    &lt;input</span><br><span class="line">      class=&quot;seek-item-input&quot;</span><br><span class="line">      type=&quot;text&quot;</span><br><span class="line">      v-model.trim=&quot;applyData.picName&quot;</span><br><span class="line">      placeholder=&quot;请输入搜索的名称&quot;</span><br><span class="line">    /&gt;</span><br><span class="line">    &lt;view class=&quot;seek-icon&quot; @click=&quot;searchName&quot;&gt;</span><br><span class="line">      搜索</span><br><span class="line">    &lt;/view&gt;</span><br><span class="line">  &lt;/view&gt;</span><br><span class="line">  &lt;view&gt;</span><br><span class="line">    //展示搜索结果</span><br><span class="line">    &lt;view &gt;&#123;&#123; searchResult &#125;&#125;&lt;/view&gt;</span><br><span class="line">  &lt;/view&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre>
 
-<h5 id="3-代码片段"><a href="#3-代码片段" class="headerlink" title="3.代码片段"></a>3.代码片段</h5><p>
-  <code>
-async function login () &#123;
-  const &#123; data &#125; = await axios.post('http://localhost:3000/user/login', loginForm.value)
-  if (data.code === 2) &#123;
-    window.sessionStorage.setItem('userid', data.body.userid)
-    window.sessionStorage.setItem('username', data.body.username)
-    window.sessionStorage.setItem('roleType', data.body.roleType)
-    router.push('/home')
-  &#125; else &#123;
-    ElMessage.error(data.msg)
-  &#125;
-&#125;
-</code>
-</p>
-
-<p>
-  (1)const {data} 解构赋值<br>
-  通过 const { data } = ... 语法，可以直接从响应对象中提取 data 属性并赋值给同名变量,用于从 Promise 解析后的响应对象中提取特定属性。<br>
-  (2)data.code===2<br>
-  data.code===2是自己写的,写在后端的user页面中:
-  <code>
-    
-<p>user.post(‘&#x2F;login’, async (req, res) &#x3D;&gt; &#123;<br>&#x2F;&#x2F;从请求体中获取用户提交的数据<br>  const &#123; body &#125; &#x3D; req<br>  let sql &#x3D; <code>select * from user_info where userid=&#39;$&#123;body.userid&#125;&#39; and password=&#39;$&#123;body.password&#125;&#39;</code><br>  &#x2F;&#x2F;创建数据库操作实例<br>  const addDatabase &#x3D; new DataBase()<br>  &#x2F;&#x2F;执行查询<br>  const info &#x3D; await addDatabase.getSqlData(sql)<br>  if (info.length) {<br>    res.send({<br>      code: 2,<br>      body: info[0]<br>      &#x2F;&#x2F;返回查询到的第一条数据<br>    })<br>  } else {<br>    res.send({<br>      code: 4,<br>      msg: ‘账号或密码有误！’<br>    })<br>  }<br>})<br>  </code></p>
-</p>
-
-
-<p><b>类似片段</b></p>
-<code>
-  const login =()=>&#123;
-    if(username.value==='admin'&&password.value==='admin')&#123;
-        localStorage.setItem('token','Bear...')
-        router.push('/home')
-    &#125;else&#123;
-        localStorage.removeItem('token')
-    &#125;
-&#125;
-</code>
-<br>
-
-<h6 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h6><p>
-  浏览器提供的客户端储存机制,在浏览器存储键值对数据,长期保留并且不会发送到服务器,一般用于存储无需保密的客户端数据<br>
-  localStorage.setItem(key, value);
-</p>
-
+<hr>
+<h3 id="五、交互与细节优化-待实现"><a href="#五、交互与细节优化-待实现" class="headerlink" title="五、交互与细节优化(待实现)"></a>五、交互与细节优化(待实现)</h3><ol>
+<li><p><strong>节流防抖</strong><br>搜索按钮点击后可以加 <code>loading</code> 状态，避免短时间多次点击。</p>
+</li>
+<li><p><strong>回车搜索</strong><br>可用 <code>@confirm=&quot;searchPicName&quot;</code> 监听输入框回车事件，提升用户体验。</p>
+</li>
+<li><p><strong>清空输入</strong><br>当用户手动清空输入框时，自动重置 <code>searchResult</code> 和 <code>Loaded</code>。</p>
+</li>
+</ol>
+<hr>
+<h3 id="六、运行流程图"><a href="#六、运行流程图" class="headerlink" title="六、运行流程图"></a>六、运行流程图</h3><ol>
+<li>用户输入搜索的名称</li>
+<li>点击搜索按钮</li>
+<li>前端校验输入是否为空</li>
+<li>发起 axios 请求</li>
+<li>成功 → 更新 <code>name_id</code>,显示搜索结果、标记 <code>Loaded</code>,用于后续提交验证</li>
+<li>失败 → 提示“没有找到相关信息”</li>
+</ol>
+<hr>
 
   </div>
   <div>
@@ -568,13 +573,13 @@ async function login () &#123;
   
     <div class="nav-item-prev">
       <a 
-        href="/2025/05/15/slot/" 
+        href="/2025/08/13/20250813/" 
         class="nav-link">
         <i class="iconfont icon-left nav-prev-icon"></i>
         <div>
           <div class="nav-label">上一篇</div>
           
-            <div class="nav-title">组件间传值 </div>
+            <div class="nav-title">Vue/Uni-App 多选标签接口对接与交互实现 </div>
           
         </div>
       </a>
@@ -583,12 +588,12 @@ async function login () &#123;
   
     <div class="nav-item-next">
       <a 
-        href="/2025/05/09/priojectStu/" 
+        href="/2025/08/07/camera/" 
         class="nav-link">
         <div>
           <div class="nav-label">下一篇</div>
           
-            <div class="nav-title">项目一-页面搭建 </div>
+            <div class="nav-title">基于 uni-app 和腾讯地图 SDK 实现水印相机 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
@@ -606,7 +611,7 @@ async function login () &#123;
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyLogin%E9%A1%B5%E9%9D%A2"><span class="toc-text">MyLogin页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">1.实现功能:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E9%97%AE%E9%A2%98"><span class="toc-text">2.问题:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-text">3.代码片段</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#localStorage"><span class="toc-text">localStorage</span></a></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#uniApp-%E8%A1%A8%E5%8D%95%E6%90%9C%E7%B4%A2%E6%8E%A5%E5%8F%A3%E5%AF%B9%E6%8E%A5%E5%AE%9E%E6%88%98%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%90%8D%E7%A7%B0%E6%9F%A5%E8%AF%A2%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A"><span class="toc-text">uniApp 表单搜索接口对接实战：数据名称查询与数据绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-text">一、功能需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%EF%BC%88axios-%E8%AF%B7%E6%B1%82%EF%BC%89"><span class="toc-text">二、接口实现（axios 请求）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E6%96%B9%E6%B3%95"><span class="toc-text">三、数据结构与方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%A8%A1%E6%9D%BF%E7%BB%91%E5%AE%9A%E4%B8%8E%E5%B1%95%E7%A4%BA"><span class="toc-text">四、模板绑定与展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E4%BA%A4%E4%BA%92%E4%B8%8E%E7%BB%86%E8%8A%82%E4%BC%98%E5%8C%96-%E5%BE%85%E5%AE%9E%E7%8E%B0"><span class="toc-text">五、交互与细节优化(待实现)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E8%BF%90%E8%A1%8C%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-text">六、运行流程图</span></a></li></ol></li></ol>
 </div>
             </main>
             <aside class="right-column">
@@ -620,7 +625,7 @@ async function login () &#123;
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyLogin%E9%A1%B5%E9%9D%A2"><span class="toc-text">MyLogin页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">1.实现功能:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E9%97%AE%E9%A2%98"><span class="toc-text">2.问题:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-text">3.代码片段</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#localStorage"><span class="toc-text">localStorage</span></a></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#uniApp-%E8%A1%A8%E5%8D%95%E6%90%9C%E7%B4%A2%E6%8E%A5%E5%8F%A3%E5%AF%B9%E6%8E%A5%E5%AE%9E%E6%88%98%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%90%8D%E7%A7%B0%E6%9F%A5%E8%AF%A2%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A"><span class="toc-text">uniApp 表单搜索接口对接实战：数据名称查询与数据绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-text">一、功能需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%EF%BC%88axios-%E8%AF%B7%E6%B1%82%EF%BC%89"><span class="toc-text">二、接口实现（axios 请求）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E6%96%B9%E6%B3%95"><span class="toc-text">三、数据结构与方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%A8%A1%E6%9D%BF%E7%BB%91%E5%AE%9A%E4%B8%8E%E5%B1%95%E7%A4%BA"><span class="toc-text">四、模板绑定与展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E4%BA%A4%E4%BA%92%E4%B8%8E%E7%BB%86%E8%8A%82%E4%BC%98%E5%8C%96-%E5%BE%85%E5%AE%9E%E7%8E%B0"><span class="toc-text">五、交互与细节优化(待实现)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E8%BF%90%E8%A1%8C%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-text">六、运行流程图</span></a></li></ol></li></ol>
     </article>
   
   
