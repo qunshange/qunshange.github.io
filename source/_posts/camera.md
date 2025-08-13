@@ -8,8 +8,8 @@ tag:
 - canvas
 - sdk
 category:
-- 前端
-- 微信小程序
+- [前端]
+- [微信小程序]
   
 ---
 
