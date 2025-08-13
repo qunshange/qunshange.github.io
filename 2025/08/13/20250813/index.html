@@ -486,7 +486,7 @@
     
     
       <span class="dot"></span>
-      <span>788 字</span>
+      <span>858 字</span>
     
   </div>
   
@@ -526,12 +526,19 @@
 <hr>
 <h3 id="一、功能需求分析"><a href="#一、功能需求分析" class="headerlink" title="一、功能需求分析"></a>一、功能需求分析</h3><ol>
 <li><p><strong>接口数据获取</strong><br>从后端接口(公司提供)获取item表列。</p>
+<ul>
+<li>mounted中启动网络请求的方法,获取数据。</li>
+</ul>
 </li>
 <li><p><strong>循环渲染</strong><br>用 <code>v-for</code> 将接口返回的item数据渲染成可点击的标签按钮。</p>
 </li>
-<li><p><strong>选中交互</strong><br>点击标签时切换选中状态，并保存到数组，供后续提交表单使用。</p>
+<li><p><strong>选中交互</strong><br>点击标签时切换选中状态，并保存id到对应的数组，供后续提交表单使用。</p>
+<ul>
+<li>checked默认false,点击标签传递id给方法,checked改成true,判断checked&#x3D;&#x3D;true时存储id到数组,否则移除数组。</li>
+<li>样式:动态绑定,checked为true时样式生效。</li>
+</ul>
 </li>
-<li><p><strong>扩展优化</strong></p>
+<li><p><strong>gpt扩展优化(待实现)</strong></p>
 <ul>
 <li>多选状态样式高亮</li>
 <li>选中逻辑避免重复 ID</li>
