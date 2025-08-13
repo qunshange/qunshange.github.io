@@ -5,6 +5,8 @@ excerpt: 实习期写的功能
 tag: 
 - 实际项目开发总结
 - 水印相机
+- canvas
+- sdk
 category:
 - 微信小程序
 - 前端
