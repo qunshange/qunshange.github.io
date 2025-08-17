@@ -15,17 +15,17 @@ category: 前端
 ### 1. 默认插槽
 - **定义**：父组件在调用子组件标签时，标签内部写的内容会自动填充到子组件的 `<slot>` 中。
 - **子组件**：
-```vue
+```html
 <template>
   <div class="child">
     <slot></slot> <!-- 默认插槽 -->
   </div>
 </template>
-````
+```
 
 * **父组件**：
 
-```vue
+```html
 <ChildComponent>
   <p>这是插入到子组件默认插槽的内容</p>
 </ChildComponent>
@@ -38,7 +38,7 @@ category: 前端
 * **定义**：给 `<slot>` 添加 `name` 属性，可以指定内容插入的位置。
 * **子组件**：
 
-```vue
+```html
 <template>
   <header>
     <slot name="header"></slot>
@@ -54,7 +54,7 @@ category: 前端
 
 * **父组件**：
 
-```vue
+```html
 <ChildComponent>
   <template v-slot:header>
     <h1>标题部分</h1>
@@ -77,7 +77,7 @@ category: 前端
 * **定义**：子组件向插槽中绑定属性，父组件可以接收并使用这些属性。
 * **子组件**：
 
-```vue
+```html
 <template>
   <div>
     <slot :user="userInfo"></slot>
@@ -97,7 +97,7 @@ export default {
 
 * **父组件**：
 
-```vue
+```html
 <ChildComponent v-slot="{ user }">
   <p>用户名：{{ user.name }}</p>
   <p>年龄：{{ user.age }}</p>
@@ -117,7 +117,7 @@ export default {
 
 * **子组件**：
 
-```vue
+```javascript
 <script>
 export default {
   props: ['title']
@@ -131,7 +131,7 @@ export default {
 
 * **父组件**：
 
-```vue
+```html
 <ChildComponent title="这是标题" />
 ```
 
@@ -141,7 +141,7 @@ export default {
 
 * Vue 支持对 props 进行类型校验，并可设置默认值。
 
-```vue
+```javascript
 <script>
 export default {
   props: {
@@ -163,7 +163,7 @@ export default {
 
 ### 3. 多类型支持
 
-```vue
+```javascript
 props: {
   value: [String, Number]
 }
@@ -175,7 +175,7 @@ props: {
 
 ### 4. 传递对象/数组
 
-```vue
+```html
 <ChildComponent :user="{ name: '张三', age: 20 }" />
 <ChildComponent :list="[1, 2, 3]" />
 ```
@@ -191,7 +191,7 @@ props: {
 
 示例：
 
-```vue
+```html
 <ChildComponent :title="pageTitle" v-slot:footer="{ date }">
   <p>这里是主体内容</p>
   <p>当前时间：{{ date }}</p>
