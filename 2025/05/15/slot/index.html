@@ -539,19 +539,19 @@
 <li><strong>定义</strong>：父组件在调用子组件标签时，标签内部写的内容会自动填充到子组件的 <code>&lt;slot&gt;</code> 中。</li>
 <li><strong>子组件</strong>：</li>
 </ul>
-<pre class="highlight"><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;child&quot;&gt;</span><br><span class="line">    &lt;slot&gt;&lt;/slot&gt; &lt;!-- 默认插槽 --&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">````</span><br><span class="line"></span><br><span class="line">* **父组件**：</span><br><span class="line"></span><br><span class="line">```vue</span><br><span class="line">&lt;ChildComponent&gt;</span><br><span class="line">  &lt;p&gt;这是插入到子组件默认插槽的内容&lt;/p&gt;</span><br><span class="line">&lt;/ChildComponent&gt;</span><br></pre>
+<pre class="highlight"><code class="hljs vue">&lt;template&gt;<br>  &lt;div class=&quot;child&quot;&gt;<br>    &lt;slot&gt;&lt;/slot&gt; &lt;!-- 默认插槽 --&gt;<br>  &lt;/div&gt;<br>&lt;/template&gt;<br>````<br><br>* **父组件**：<br><br>```vue<br>&lt;ChildComponent&gt;<br>  &lt;p&gt;这是插入到子组件默认插槽的内容&lt;/p&gt;<br>&lt;/ChildComponent&gt;<br></code></pre>
 
 <hr>
 <h3 id="2-具名插槽"><a href="#2-具名插槽" class="headerlink" title="2. 具名插槽"></a>2. 具名插槽</h3><ul>
 <li><strong>定义</strong>：给 <code>&lt;slot&gt;</code> 添加 <code>name</code> 属性，可以指定内容插入的位置。</li>
 <li><strong>子组件</strong>：</li>
 </ul>
-<pre class="highlight"><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;header&gt;</span><br><span class="line">    &lt;slot name=&quot;header&quot;&gt;&lt;/slot&gt;</span><br><span class="line">  &lt;/header&gt;</span><br><span class="line">  &lt;main&gt;</span><br><span class="line">    &lt;slot&gt;&lt;/slot&gt; &lt;!-- 默认插槽 --&gt;</span><br><span class="line">  &lt;/main&gt;</span><br><span class="line">  &lt;footer&gt;</span><br><span class="line">    &lt;slot name=&quot;footer&quot;&gt;&lt;/slot&gt;</span><br><span class="line">  &lt;/footer&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre>
+<pre class="highlight"><code class="hljs vue">&lt;template&gt;<br>  &lt;header&gt;<br>    &lt;slot name=&quot;header&quot;&gt;&lt;/slot&gt;<br>  &lt;/header&gt;<br>  &lt;main&gt;<br>    &lt;slot&gt;&lt;/slot&gt; &lt;!-- 默认插槽 --&gt;<br>  &lt;/main&gt;<br>  &lt;footer&gt;<br>    &lt;slot name=&quot;footer&quot;&gt;&lt;/slot&gt;<br>  &lt;/footer&gt;<br>&lt;/template&gt;<br></code></pre>
 
 <ul>
 <li><strong>父组件</strong>：</li>
 </ul>
-<pre class="highlight"><span class="line">&lt;ChildComponent&gt;</span><br><span class="line">  &lt;template v-slot:header&gt;</span><br><span class="line">    &lt;h1&gt;标题部分&lt;/h1&gt;</span><br><span class="line">  &lt;/template&gt;</span><br><span class="line"></span><br><span class="line">  &lt;p&gt;这是默认插槽内容&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">  &lt;template v-slot:footer&gt;</span><br><span class="line">    &lt;p&gt;底部信息&lt;/p&gt;</span><br><span class="line">  &lt;/template&gt;</span><br><span class="line">&lt;/ChildComponent&gt;</span><br></pre>
+<pre class="highlight"><code class="hljs vue">&lt;ChildComponent&gt;<br>  &lt;template v-slot:header&gt;<br>    &lt;h1&gt;标题部分&lt;/h1&gt;<br>  &lt;/template&gt;<br><br>  &lt;p&gt;这是默认插槽内容&lt;/p&gt;<br><br>  &lt;template v-slot:footer&gt;<br>    &lt;p&gt;底部信息&lt;/p&gt;<br>  &lt;/template&gt;<br>&lt;/ChildComponent&gt;<br></code></pre>
 
 <blockquote>
 <p><code>v-slot:header</code> 可以简写为 <code>#header</code>。</p>
@@ -561,12 +561,12 @@
 <li><strong>定义</strong>：子组件向插槽中绑定属性，父组件可以接收并使用这些属性。</li>
 <li><strong>子组件</strong>：</li>
 </ul>
-<pre class="highlight"><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;slot :user=&quot;userInfo&quot;&gt;&lt;/slot&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      userInfo: &#123; name: &#x27;张三&#x27;, age: 20 &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre>
+<pre class="highlight"><code class="hljs vue">&lt;template&gt;<br>  &lt;div&gt;<br>    &lt;slot :user=&quot;userInfo&quot;&gt;&lt;/slot&gt;<br>  &lt;/div&gt;<br>&lt;/template&gt;<br><br>&lt;script&gt;<br>export default &#123;<br>  data() &#123;<br>    return &#123;<br>      userInfo: &#123; name: &#x27;张三&#x27;, age: 20 &#125;<br>    &#125;<br>  &#125;<br>&#125;<br>&lt;/script&gt;<br></code></pre>
 
 <ul>
 <li><strong>父组件</strong>：</li>
 </ul>
-<pre class="highlight"><span class="line">&lt;ChildComponent v-slot=&quot;&#123; user &#125;&quot;&gt;</span><br><span class="line">  &lt;p&gt;用户名：&#123;&#123; user.name &#125;&#125;&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;年龄：&#123;&#123; user.age &#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/ChildComponent&gt;</span><br></pre>
+<pre class="highlight"><code class="hljs vue">&lt;ChildComponent v-slot=&quot;&#123; user &#125;&quot;&gt;<br>  &lt;p&gt;用户名：&#123;&#123; user.name &#125;&#125;&lt;/p&gt;<br>  &lt;p&gt;年龄：&#123;&#123; user.age &#125;&#125;&lt;/p&gt;<br>&lt;/ChildComponent&gt;<br></code></pre>
 
 <ul>
 <li>这里 <code>v-slot=&quot;&#123; user &#125;&quot;</code> 语法是 <strong>解构插槽参数</strong>。</li>
@@ -576,25 +576,25 @@
 <h3 id="1-基本用法"><a href="#1-基本用法" class="headerlink" title="1. 基本用法"></a>1. 基本用法</h3><ul>
 <li><strong>子组件</strong>：</li>
 </ul>
-<pre class="highlight"><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  props: [&#x27;title&#x27;]</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h2&gt;&#123;&#123; title &#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre>
+<pre class="highlight"><code class="hljs vue">&lt;script&gt;<br>export default &#123;<br>  props: [&#x27;title&#x27;]<br>&#125;<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>  &lt;h2&gt;&#123;&#123; title &#125;&#125;&lt;/h2&gt;<br>&lt;/template&gt;<br></code></pre>
 
 <ul>
 <li><strong>父组件</strong>：</li>
 </ul>
-<pre class="highlight"><span class="line">&lt;ChildComponent title=&quot;这是标题&quot; /&gt;</span><br></pre>
+<pre class="highlight"><code class="hljs vue">&lt;ChildComponent title=&quot;这是标题&quot; /&gt;<br></code></pre>
 
 <hr>
 <h3 id="2-类型校验"><a href="#2-类型校验" class="headerlink" title="2. 类型校验"></a>2. 类型校验</h3><ul>
 <li>Vue 支持对 props 进行类型校验，并可设置默认值。</li>
 </ul>
-<pre class="highlight"><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    title: &#123;</span><br><span class="line">      type: String,     // 类型</span><br><span class="line">      required: true,   // 必传</span><br><span class="line">      default: &#x27;默认标题&#x27; // 默认值</span><br><span class="line">    &#125;,</span><br><span class="line">    count: &#123;</span><br><span class="line">      type: Number,</span><br><span class="line">      default: 0</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre>
+<pre class="highlight"><code class="hljs vue">&lt;script&gt;<br>export default &#123;<br>  props: &#123;<br>    title: &#123;<br>      type: String,     // 类型<br>      required: true,   // 必传<br>      default: &#x27;默认标题&#x27; // 默认值<br>    &#125;,<br>    count: &#123;<br>      type: Number,<br>      default: 0<br>    &#125;<br>  &#125;<br>&#125;<br>&lt;/script&gt;<br></code></pre>
 
 <hr>
-<h3 id="3-多类型支持"><a href="#3-多类型支持" class="headerlink" title="3. 多类型支持"></a>3. 多类型支持</h3><pre class="highlight"><span class="line">props: &#123;</span><br><span class="line">  value: [String, Number]</span><br><span class="line">&#125;</span><br></pre>
+<h3 id="3-多类型支持"><a href="#3-多类型支持" class="headerlink" title="3. 多类型支持"></a>3. 多类型支持</h3><pre class="highlight"><code class="hljs vue">props: &#123;<br>  value: [String, Number]<br>&#125;<br></code></pre>
 
 <p>表示 <code>value</code> 可以是字符串或数字。</p>
 <hr>
-<h3 id="4-传递对象-数组"><a href="#4-传递对象-数组" class="headerlink" title="4. 传递对象&#x2F;数组"></a>4. 传递对象&#x2F;数组</h3><pre class="highlight"><span class="line">&lt;ChildComponent :user=&quot;&#123; name: &#x27;张三&#x27;, age: 20 &#125;&quot; /&gt;</span><br><span class="line">&lt;ChildComponent :list=&quot;[1, 2, 3]&quot; /&gt;</span><br></pre>
+<h3 id="4-传递对象-数组"><a href="#4-传递对象-数组" class="headerlink" title="4. 传递对象&#x2F;数组"></a>4. 传递对象&#x2F;数组</h3><pre class="highlight"><code class="hljs vue">&lt;ChildComponent :user=&quot;&#123; name: &#x27;张三&#x27;, age: 20 &#125;&quot; /&gt;<br>&lt;ChildComponent :list=&quot;[1, 2, 3]&quot; /&gt;<br></code></pre>
 
 <hr>
 <h2 id="三、slot-与-props-配合使用"><a href="#三、slot-与-props-配合使用" class="headerlink" title="三、slot 与 props 配合使用"></a>三、slot 与 props 配合使用</h2><p>在实际开发中，可以结合 <code>slot</code> 与 <code>props</code> 实现更灵活的组件：</p>
@@ -603,7 +603,7 @@
 <li>用 <code>slot</code> 提供可自定义的 UI 渲染区域，让父组件灵活定义展示内容。</li>
 </ul>
 <p>示例：</p>
-<pre class="highlight"><span class="line">&lt;ChildComponent :title=&quot;pageTitle&quot; v-slot:footer=&quot;&#123; date &#125;&quot;&gt;</span><br><span class="line">  &lt;p&gt;这里是主体内容&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;当前时间：&#123;&#123; date &#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/ChildComponent&gt;</span><br></pre>
+<pre class="highlight"><code class="hljs vue">&lt;ChildComponent :title=&quot;pageTitle&quot; v-slot:footer=&quot;&#123; date &#125;&quot;&gt;<br>  &lt;p&gt;这里是主体内容&lt;/p&gt;<br>  &lt;p&gt;当前时间：&#123;&#123; date &#125;&#125;&lt;/p&gt;<br>&lt;/ChildComponent&gt;<br></code></pre>
 
 <hr>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
