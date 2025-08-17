@@ -6,47 +6,57 @@ tag:
 - css
 category: 前端
 ---
-### 规定flexbox
-`display : flex`
+## 规定flexbox
+**display : flex**
 
-- flex-basis:子元素宽度,写在子元素上
+- `flex-basis:`子元素宽度,写在子元素上
 
-- flex-shrink: 1 ;超出容器时自动缩小
+- `flex-shrink:` 1 ;超出容器时自动缩小
 
-### 定主轴方向--规定子元素排列方向
-`flex-direction:`
-- <p>row(默认值):横向排列</p>
-- <p>row-reverse:横向反向排列</p>
-- <p>column:竖向排列</p>
+---
 
-### 交叉轴对齐--横轴上子元素对齐高度
-`align-items:`
-- <p>stretch(默认值):所有子元素行高 和行高最高的一样高,并对齐</p>
-- <p>flex-start:在第一行对齐</p>
-- <p>flex-end:在最后一行对齐</p>
-- <p>center:在中线对齐</p>
+## 定主轴方向--规定子元素排列方向
+**flex-direction:**
+- `row(默认值):`横向排列
+- `row-reverse:`横向反向排列
+- `column:`竖向排列
 
-### 水平轴对齐--横轴上子元素分布
-`justify-content:`
-- <p>center(默认值):内容居中展示</p>
-- <p>space-between:首尾靠边,中间均匀分布</p>
-- <p>space-around:首尾靠边空1/2,中间均匀分布</p>
-- <p>space-evenly:所有空隙一样分布</p>
+---
 
-### 多轴对齐--纵轴上子元素分布
-`align-content:`
-- <p>normal:无效果</p>
-- <p>flex-start/flex-end:从首行开始或最后一行开始对齐</p>
-- <p>space-between:首尾靠边,中间均匀分布</p>
-- <p>space-around:首尾靠边空1/2,中间均匀分布</p>
-- <p>space-evenly:所有空隙一样分布</p>
+## 交叉轴对齐--横轴上子元素对齐高度
+**align-items:**
+- `stretch(默认值):`所有子元素行高 和行高最高的一样高,并对齐
+- `flex-start:`在第一行对齐
+- `flex-end:`在最后一行对齐
+- `center:`在中线对齐
 
-### 元素换行
-`flex-wrap:`
-- nowrap:不换行
-- wrap:换行
+---
 
+## 水平轴对齐--横轴上子元素分布
+**justify-content:**
+- `center(默认值):`内容居中展示
+- `space-between:`首尾靠边,中间均匀分布
+- `space-around:`首尾靠边空1/2,中间均匀分布
+- `space-evenly:`所有空隙一样分布
 
+---
+
+## 多轴对齐--纵轴上子元素分布
+**align-content:**
+- `normal:`无效果
+- `flex-start/flex-end:`从首行开始或最后一行开始对齐
+- `space-between:`首尾靠边,中间均匀分布
+- `space-around:`首尾靠边空1/2,中间均匀分布
+- `space-evenly:`所有空隙一样分布
+
+---
+
+## 元素换行
+**flex-wrap:**
+- `nowrap:`不换行
+- `wrap:`换行
+
+---
 
 
 
