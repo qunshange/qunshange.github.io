@@ -45,7 +45,7 @@
         content="2025-05-14">
       <meta 
         property="og:article:modified_time" 
-        content="2025-08-17">
+        content="2025-09-15">
       <meta 
         property="og:article:author" 
         content="群山鸽">
@@ -167,7 +167,7 @@
   
   
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.0.0"></head>
 
   <body>
     <div class="wrapper">
@@ -414,18 +414,6 @@
       </a>
     
       <a 
-        href="/tags/css/" 
-        title="css">
-        <div class="tags-list-item">css</div>
-      </a>
-    
-      <a 
-        href="/tags/flex/" 
-        title="flex">
-        <div class="tags-list-item">flex</div>
-      </a>
-    
-      <a 
         href="/tags/sdk/" 
         title="sdk">
         <div class="tags-list-item">sdk</div>
@@ -441,6 +429,18 @@
         href="/tags/%E6%B0%B4%E5%8D%B0%E7%9B%B8%E6%9C%BA/" 
         title="水印相机">
         <div class="tags-list-item">水印相机</div>
+      </a>
+    
+      <a 
+        href="/tags/css/" 
+        title="css">
+        <div class="tags-list-item">css</div>
+      </a>
+    
+      <a 
+        href="/tags/flex/" 
+        title="flex">
+        <div class="tags-list-item">flex</div>
       </a>
     
   </div>
@@ -478,7 +478,7 @@
     
     
       <span class="dot"></span>
-      <span>521 字</span>
+      <span>500 字</span>
     
   </div>
   
@@ -521,17 +521,17 @@
 
 <h5 id="3-代码片段"><a href="#3-代码片段" class="headerlink" title="3.代码片段"></a>3.代码片段</h5><p>
   <code>
-async function login () &#123;
-  const &#123; data &#125; = await axios.post('http://localhost:3000/user/login', loginForm.value)
-  if (data.code === 2) &#123;
+async function login () {
+  const { data } = await axios.post('http://localhost:3000/user/login', loginForm.value)
+  if (data.code === 2) {
     window.sessionStorage.setItem('userid', data.body.userid)
     window.sessionStorage.setItem('username', data.body.username)
     window.sessionStorage.setItem('roleType', data.body.roleType)
     router.push('/home')
-  &#125; else &#123;
+  } else {
     ElMessage.error(data.msg)
-  &#125;
-&#125;
+  }
+}
 </code>
 </p>
 
@@ -542,20 +542,20 @@ async function login () &#123;
   data.code===2是自己写的,写在后端的user页面中:
   <code>
     
-<p>user.post(‘&#x2F;login’, async (req, res) &#x3D;&gt; &#123;<br>&#x2F;&#x2F;从请求体中获取用户提交的数据<br>  const &#123; body &#125; &#x3D; req<br>  let sql &#x3D; <code>select * from user_info where userid=&#39;$&#123;body.userid&#125;&#39; and password=&#39;$&#123;body.password&#125;&#39;</code><br>  &#x2F;&#x2F;创建数据库操作实例<br>  const addDatabase &#x3D; new DataBase()<br>  &#x2F;&#x2F;执行查询<br>  const info &#x3D; await addDatabase.getSqlData(sql)<br>  if (info.length) {<br>    res.send({<br>      code: 2,<br>      body: info[0]<br>      &#x2F;&#x2F;返回查询到的第一条数据<br>    })<br>  } else {<br>    res.send({<br>      code: 4,<br>      msg: ‘账号或密码有误！’<br>    })<br>  }<br>})<br>  </code></p>
+<p>user.post(‘&#x2F;login’, async (req, res) &#x3D;&gt; {<br>&#x2F;&#x2F;从请求体中获取用户提交的数据<br>  const { body } &#x3D; req<br>  let sql &#x3D; <code>select * from user_info where userid=&#39;${body.userid}&#39; and password=&#39;${body.password}&#39;</code><br>  &#x2F;&#x2F;创建数据库操作实例<br>  const addDatabase &#x3D; new DataBase()<br>  &#x2F;&#x2F;执行查询<br>  const info &#x3D; await addDatabase.getSqlData(sql)<br>  if (info.length) {<br>    res.send({<br>      code: 2,<br>      body: info[0]<br>      &#x2F;&#x2F;返回查询到的第一条数据<br>    })<br>  } else {<br>    res.send({<br>      code: 4,<br>      msg: ‘账号或密码有误！’<br>    })<br>  }<br>})<br>  </code></p>
 </p>
 
 
 <p><b>类似片段</b></p>
 <code>
-  const login =()=>&#123;
-    if(username.value==='admin'&&password.value==='admin')&#123;
+  const login =()=>{
+    if(username.value==='admin'&&password.value==='admin'){
         localStorage.setItem('token','Bear...')
         router.push('/home')
-    &#125;else&#123;
+    }else{
         localStorage.removeItem('token')
-    &#125;
-&#125;
+    }
+}
 </code>
 <br>
 
@@ -641,8 +641,8 @@ async function login () &#123;
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2025-08-17</div>
-        <a href="/2025/08/17/promise/"><div class="recent-posts-item-content">Promise的使用</div></a>
+        <div class="recent-posts-item-title">2025-09-15</div>
+        <a href="/2025/09/15/promise/"><div class="recent-posts-item-content">Promise的使用</div></a>
       </div>
     
       <div class="recent-posts-item">
@@ -657,7 +657,7 @@ async function login () &#123;
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2025-08-07</div>
-        <a href="/2025/08/07/camera/"><div class="recent-posts-item-content">基于 uni-app 和腾讯地图 SDK 实现水印相机</div></a>
+        <a href="/2025/08/07/flex/"><div class="recent-posts-item-content">flex弹性布局</div></a>
       </div>
     
   </div>
