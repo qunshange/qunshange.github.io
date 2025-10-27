@@ -49,7 +49,7 @@
         content="2025-05-15">
       <meta 
         property="og:article:modified_time" 
-        content="2025-09-15">
+        content="2025-10-27">
       <meta 
         property="og:article:author" 
         content="群山鸽">
@@ -179,7 +179,7 @@
   
   
   
-<meta name="generator" content="Hexo 8.0.0"></head>
+<meta name="generator" content="Hexo 8.1.0"></head>
 
   <body>
     <div class="wrapper">
@@ -426,6 +426,18 @@
       </a>
     
       <a 
+        href="/tags/css/" 
+        title="css">
+        <div class="tags-list-item">css</div>
+      </a>
+    
+      <a 
+        href="/tags/flex/" 
+        title="flex">
+        <div class="tags-list-item">flex</div>
+      </a>
+    
+      <a 
         href="/tags/sdk/" 
         title="sdk">
         <div class="tags-list-item">sdk</div>
@@ -441,18 +453,6 @@
         href="/tags/%E6%B0%B4%E5%8D%B0%E7%9B%B8%E6%9C%BA/" 
         title="水印相机">
         <div class="tags-list-item">水印相机</div>
-      </a>
-    
-      <a 
-        href="/tags/css/" 
-        title="css">
-        <div class="tags-list-item">css</div>
-      </a>
-    
-      <a 
-        href="/tags/flex/" 
-        title="flex">
-        <div class="tags-list-item">flex</div>
       </a>
     
   </div>
@@ -490,7 +490,7 @@
     
     
       <span class="dot"></span>
-      <span>803 字</span>
+      <span>791 字</span>
     
   </div>
   
@@ -539,7 +539,7 @@
 <li><strong>定义</strong>：父组件在调用子组件标签时，标签内部写的内容会自动填充到子组件的 <code>&lt;slot&gt;</code> 中。</li>
 <li><strong>子组件</strong>：</li>
 </ul>
-<pre class="highlight"><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;child&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span> <span class="hljs-comment">&lt;!-- 默认插槽 --&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre>
+<pre class="highlight"><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;child&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span> <span class="hljs-comment"><!-- 默认插槽 --></span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre>
 
 <ul>
 <li><strong>父组件</strong>：</li>
@@ -551,7 +551,7 @@
 <li><strong>定义</strong>：给 <code>&lt;slot&gt;</code> 添加 <code>name</code> 属性，可以指定内容插入的位置。</li>
 <li><strong>子组件</strong>：</li>
 </ul>
-<pre class="highlight"><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;header&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span> <span class="hljs-comment">&lt;!-- 默认插槽 --&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;footer&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre>
+<pre class="highlight"><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;header&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span> <span class="hljs-comment"><!-- 默认插槽 --></span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;footer&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre>
 
 <ul>
 <li><strong>父组件</strong>：</li>
@@ -627,13 +627,13 @@
   
     <div class="nav-item-prev">
       <a 
-        href="/2025/08/07/camera/" 
+        href="/2025/08/07/flex/" 
         class="nav-link">
         <i class="iconfont icon-left nav-prev-icon"></i>
         <div>
           <div class="nav-label">上一篇</div>
           
-            <div class="nav-title">基于 uni-app 和腾讯地图 SDK 实现水印相机 </div>
+            <div class="nav-title">flex弹性布局 </div>
           
         </div>
       </a>
@@ -694,8 +694,8 @@
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2025-09-15</div>
-        <a href="/2025/09/15/promise/"><div class="recent-posts-item-content">Promise的使用</div></a>
+        <div class="recent-posts-item-title">2025-10-27</div>
+        <a href="/2025/10/27/promise/"><div class="recent-posts-item-content">Promise的使用</div></a>
       </div>
     
       <div class="recent-posts-item">
@@ -710,7 +710,7 @@
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2025-08-07</div>
-        <a href="/2025/08/07/flex/"><div class="recent-posts-item-content">flex弹性布局</div></a>
+        <a href="/2025/08/07/camera/"><div class="recent-posts-item-content">基于 uni-app 和腾讯地图 SDK 实现水印相机</div></a>
       </div>
     
   </div>
